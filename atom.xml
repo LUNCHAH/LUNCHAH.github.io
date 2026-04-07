@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-03-09T08:27:21.013Z</updated>
+  <updated>2026-04-07T08:23:35.805Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Week5</title>
+    <link href="http://example.com/2026/04/02/Week5/"/>
+    <id>http://example.com/2026/04/02/Week5/</id>
+    <published>2026-04-01T16:00:00.000Z</published>
+    <updated>2026-04-07T08:23:35.805Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前言&quot;&gt;&lt;/a&gt; 前言&lt;/h2&gt;
+&lt;p&gt;主要是做了星盟的招新赛，内容很多且很难，借助了AI，一些知识点后面会再汇总出文章&lt;/p&gt;
+&lt;h2 id=&quot;ez_uds&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Weekly" scheme="http://example.com/categories/Weekly/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Week1</title>

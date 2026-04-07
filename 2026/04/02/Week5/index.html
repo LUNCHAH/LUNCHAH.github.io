@@ -1,0 +1,589 @@
+  <!DOCTYPE html>
+  <html lang="zh-CN"  
+      data-theme-mode="auto"
+  >
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
+  <title>
+    Week5 | LUNCHAH&#39;s Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="前言 主要是做了星盟的招新赛，内容很多且很难，借助了AI，一些知识点后面会再汇总出文章  ez_uds 题目给了算法逻辑，进入程序后发现给了如下提示 123456789101112131415161718&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   ECU UDS Security Server&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;Supported S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Week5">
+<meta property="og:url" content="http://example.com/2026/04/02/Week5/index.html">
+<meta property="og:site_name" content="LUNCHAH&#39;s Blog">
+<meta property="og:description" content="前言 主要是做了星盟的招新赛，内容很多且很难，借助了AI，一些知识点后面会再汇总出文章  ez_uds 题目给了算法逻辑，进入程序后发现给了如下提示 123456789101112131415161718&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   ECU UDS Security Server&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;Supported S">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/blog_essay_picture/week5/1.png">
+<meta property="og:image" content="http://example.com/blog_essay_picture/week5/2.png">
+<meta property="og:image" content="http://example.com/2026/04/02/Week5/blog_essay_picture/week5/3.png">
+<meta property="og:image" content="http://example.com/2026/04/02/Week5/blog_essay_picture/week5/4.png">
+<meta property="og:image" content="http://example.com/2026/04/02/Week5/blog_essay_picture/week5/5.png">
+<meta property="og:image" content="http://example.com/2026/04/02/Week5/blog_essay_picture/week5/6.png">
+<meta property="og:image" content="http://example.com/2026/04/02/Week5/blog_essay_picture/week5/7.png">
+<meta property="og:image" content="http://example.com/2026/04/02/Week5/blog_essay_picture/week5/8.png">
+<meta property="article:published_time" content="2026-04-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-04-07T08:23:35.805Z">
+<meta property="article:author" content="LUNCHAH">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/blog_essay_picture/week5/1.png">
+    <link rel="alternate" href="/atom.xml" title="LUNCHAH's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">首页</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">归档</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">关于</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/friend">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">友链</span>
+        </span>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+    <picture></picture>
+    <img  fetchpriority="high" src="https://s41.ax1x.com/2026/04/07/peUQO4P.jpg" alt="Week5">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Week5</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ez_uds"><span class="toc-number">2.</span> <span class="toc-text"> ez_uds</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#illusion"><span class="toc-number">3.</span> <span class="toc-text"> illusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%9A%84%E7%A7%98%E5%AF%86"><span class="toc-number">4.</span> <span class="toc-text"> 移动的秘密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ezfinger"><span class="toc-number">5.</span> <span class="toc-text"> ezFinger</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hajimi"><span class="toc-number">6.</span> <span class="toc-text"> hajimi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hulua"><span class="toc-number">7.</span> <span class="toc-text"> Hulua</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mixtielele"><span class="toc-number">8.</span> <span class="toc-text"> MixTielele</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#easyre"><span class="toc-number">9.</span> <span class="toc-text"> easyre</span></a></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/head.jpg" data-sizes="auto" alt="LUNCHAH" class="lazyload">
+  <div class="sidebar-author-name">LUNCHAH</div>
+  <div class="sidebar-description">逆向小手子</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">7</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:2135537336@qq.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/LUNCHAH itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-bilibili sidebar-social-icon">
+      <a href=https://space.bilibili.com/485931453?spm_id_from=333.1007.0.0 itemprop="url" target="_blank" aria-label="bilibili" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-steam sidebar-social-icon">
+      <a href=https://steamcommunity.com/profiles/76561199010313755/ itemprop="url" target="_blank" aria-label="steam" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-Week5" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-04-01T16:00:00.000Z" itemprop="datePublished">2026-04-02</time>
+    <time style="display: none;" id="post-update-time">2026-04-07</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>主要是做了星盟的招新赛，内容很多且很难，借助了AI，一些知识点后面会再汇总出文章</p>
+<h2 id="ez_uds"><a class="markdownIt-Anchor" href="#ez_uds"></a> ez_uds</h2>
+<p>题目给了算法逻辑，进入程序后发现给了如下提示</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">==============================</span><br><span class="line">   ECU UDS Security Server</span><br><span class="line">==============================</span><br><span class="line"></span><br><span class="line">Supported Service:</span><br><span class="line">  <span class="number">0x27</span>  SecurityAccess</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  <span class="number">27</span> <span class="number">01</span>             -&gt; Request Seed</span><br><span class="line">  <span class="number">27</span> <span class="number">02</span> &lt;<span class="number">4b</span>yteskey&gt; -&gt; Send Key</span><br><span class="line"></span><br><span class="line">Example:</span><br><span class="line">  <span class="number">27</span> <span class="number">01</span></span><br><span class="line">  <span class="number">27</span> <span class="number">02</span> <span class="number">12</span> <span class="number">34</span> <span class="number">56</span> <span class="number">78</span></span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;exit&#x27;</span> to disconnect.</span><br><span class="line">================================</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>输入我们输入27 01后程序回显67 01 74 EF CD D0，由于uds返还的规则是请求+0x40，那么0x27+0x40=0x67，所以我们就不用管67，直接得到逆向脚本如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">uint32_t</span> seed=<span class="number">0x74EFCDD0</span>;</span><br><span class="line">    <span class="type">uint32_t</span> key;</span><br><span class="line">    key = seed ^ <span class="number">0xA5A5A5A5</span>;</span><br><span class="line">    key = ((key &lt;&lt; <span class="number">3</span>) | (key &gt;&gt; <span class="number">29</span>)) &amp; <span class="number">0xFFFFFFFF</span>;</span><br><span class="line">    key = (key + <span class="number">0x12345678</span>) &amp; <span class="number">0xFFFFFFFF</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%x&quot;</span>,key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可得答案9c879a26</p>
+<p>回显得</p>
+<p>[+] Access Granted</p>
+<p>polarisctf{dd4d3bdd-d3f6-4abd-8d48-f55ffbf8ac66}</p>
+<h2 id="illusion"><a class="markdownIt-Anchor" href="#illusion"></a> illusion</h2>
+<p>一进来可以进入虚假的main函数，是RC4，解出来发现是虚假的flag，没思路就去查找字符串发现有real world，进入后发现是标准的AES-128，就能很快破解flag为xmctf{R3a1_w0rld_M47ters}</p>
+<h2 id="移动的秘密"><a class="markdownIt-Anchor" href="#移动的秘密"></a> 移动的秘密</h2>
+<p>进入后发现是少量正常语句和大量混淆，进入程序后找来找去发现MD5的标准初始化向量</p>
+<p>xmmword_3060    xmmword 1032547698BADCFEEFCDAB8967452301h</p>
+<p>初步怀疑为MD5加密</p>
+<p>继续看可以看到xmmword_3070在最后的比较被引用了，大抵可以判断出是目标MD5密文，再看到有位移，至于后面的高度混淆的代码经查阅是MD5的标准处理。再看执行流</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">if</span> ( __isoc99_scanf(<span class="string">&quot;%29s&quot;</span>, s) == <span class="number">1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    v3 = <span class="number">1</span>;</span><br><span class="line">    v4 = <span class="built_in">strlen</span>(s);</span><br><span class="line">    <span class="keyword">if</span> ( v4 )</span><br><span class="line">    &#123;</span><br><span class="line">      v6 = (v4 - <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">for</span> ( i = <span class="number">0</span>; i != v4; ++i )</span><br><span class="line">        *(v17 + i) = s[i] &gt;&gt; <span class="number">1</span>;</span><br><span class="line">      v5 = <span class="number">0</span>;</span><br><span class="line">      *v16 = _mm_load_si128(&amp;xmmword_3080);</span><br><span class="line">      *&amp;v16[<span class="number">13</span>] = _mm_load_si128(&amp;xmmword_3090);</span><br><span class="line">      <span class="keyword">while</span> ( v16[v5] == *(v17 + v5) )</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">if</span> ( v5 == v6 )</span><br><span class="line">          <span class="keyword">goto</span> LABEL_10;</span><br><span class="line">        ++v5;</span><br><span class="line">      &#125;</span><br><span class="line">      v3 = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">LABEL_10:</span><br><span class="line">    v12 = <span class="number">0</span>;</span><br><span class="line">    v11 = _mm_load_si128(&amp;xmmword_3060);</span><br><span class="line">    (sub_1DF0)(&amp;v11, s, v4, v5, v6, v7);</span><br><span class="line">    sub_1F60(v13, &amp;v11);</span><br><span class="line">    v9 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ( v13[v9] == si128.m128i_i8[v9] )</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">if</span> ( ++v9 == <span class="number">16</span> )</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">if</span> ( v3 )</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="built_in">puts</span>(<span class="string">&quot;right&quot;</span>);</span><br><span class="line">          <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>将我们的输入进行位移，与xmmword_3080与xmmword_3090进行对比，但这里与MD5无关，后面也没拿来调用，只是拿来混淆视听检验的，或者说这是爆破MD5时的约束条件，所以我们可以直接来逆向MD5，爆破可得flag</p>
+<h2 id="ezfinger"><a class="markdownIt-Anchor" href="#ezfinger"></a> ezFinger</h2>
+<p>这道题由于我完全没有写固件的经验，所以我是AI一把梭的<br />
+<img src="/blog_essay_picture/week5/1.png" alt="" /></p>
+<h2 id="hajimi"><a class="markdownIt-Anchor" href="#hajimi"></a> hajimi</h2>
+<p>一道很抽象的题目不借助AI我完全没思路。打开后发现直接给了源码和一个未知的压缩包。源码中有语句</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VALID_DIGITS = <span class="built_in">set</span>(<span class="string">&quot;1234&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>那大抵是只能输入1234。还能看到</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="title function_">len</span><span class="params">(prompt)</span> != <span class="number">16</span>:</span><br></pre></td></tr></table></figure>
+<p>那意味着我们输入的长度必须为16，我首先考虑爆破，但是爆破组合太多显然一个个试不是个合理的方案，询问AI，AI说这可能是一个4*4网格的数独。拿着就很好办了，我们直接爆破数独，AI给的爆破数独脚本如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> permutations</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_valid_sudoku</span>(<span class="params">grid</span>):</span><br><span class="line">    <span class="comment"># 列约束</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">all</span>(<span class="built_in">len</span>(&#123;grid[j+k*<span class="number">4</span>] <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)&#125;) == <span class="number">4</span> <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="comment"># 2×2 宫格约束</span></span><br><span class="line">    <span class="keyword">for</span> br <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">4</span>, <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">for</span> bc <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">4</span>, <span class="number">2</span>):</span><br><span class="line">            box = &#123;grid[br*<span class="number">4</span>+bc], grid[br*<span class="number">4</span>+bc+<span class="number">1</span>],</span><br><span class="line">                   grid[(br+<span class="number">1</span>)*<span class="number">4</span>+bc], grid[(br+<span class="number">1</span>)*<span class="number">4</span>+bc+<span class="number">1</span>]&#125;</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(box) != <span class="number">4</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">hits = []</span><br><span class="line"><span class="keyword">for</span> r1 <span class="keyword">in</span> permutations(<span class="string">&quot;1234&quot;</span>):</span><br><span class="line">    <span class="keyword">for</span> r2 <span class="keyword">in</span> permutations(<span class="string">&quot;1234&quot;</span>):</span><br><span class="line">        <span class="keyword">for</span> r3 <span class="keyword">in</span> permutations(<span class="string">&quot;1234&quot;</span>):</span><br><span class="line">            <span class="keyword">for</span> r4 <span class="keyword">in</span> permutations(<span class="string">&quot;1234&quot;</span>):</span><br><span class="line">                grid = <span class="built_in">list</span>(r1 + r2 + r3 + r4)</span><br><span class="line">                <span class="keyword">if</span> is_valid_sudoku(grid):</span><br><span class="line">                    s = <span class="string">&quot;&quot;</span>.join(grid)</span><br><span class="line">                    r = check(s)</span><br><span class="line">                    <span class="keyword">if</span> <span class="string">&quot;Wrong&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> r:</span><br><span class="line">                        hits.append((s, r))</span><br><span class="line">                        <span class="built_in">print</span>(<span class="string">f&quot;HIT: <span class="subst">&#123;s&#125;</span> -&gt; <span class="subst">&#123;r&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>太抽象太抽象了。</p>
+<h2 id="hulua"><a class="markdownIt-Anchor" href="#hulua"></a> Hulua</h2>
+<p>进入程序查阅后发现有34个case和超过10位的小数，那肯定有问题，查找字符串可得</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@$LuaVersion: Lua <span class="number">5.3</span>.<span class="number">6</span>  Copyright (C) <span class="number">1994</span><span class="number">-2020</span> Lua.org, PUC-Rio $$LuaAuthors: R. Ierusalimschy, L. H. de Figueiredo, W. Celes $</span><br></pre></td></tr></table></figure>
+<p>可以直接锁定Lua解释器及其版本。然后就没思路了，但是查找字符串可以看到很多重复的lua，查阅并交叉引用后发现突破口</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> __int64 <span class="title function_">sub_1400014A4</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">unsigned</span> __int64 result; <span class="comment">// rax</span></span><br><span class="line">  <span class="type">unsigned</span> __int64 v1; <span class="comment">// [rsp+18h] [rbp-18h]</span></span><br><span class="line">  <span class="type">unsigned</span> __int64 i; <span class="comment">// [rsp+28h] [rbp-8h]</span></span><br><span class="line"></span><br><span class="line">  v1 = dword_1400333DC;</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; ; ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    result = i;</span><br><span class="line">    <span class="keyword">if</span> ( i &gt;= v1 )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    byte_140033000[i] ^= aHulua[i % <span class="number">5</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>异或后可得lua字节码，将字节码编译为luac文件之后发现unluac怎么搞都搞不出来，顿感不妙，上网一查发现是这个luac被篡改了导致文件头长度缩短，notepad++也没用，没招了，给AI看给出逻辑，发现是魔改的RC4，就多了个0x66，key为xmctf2026，密文为<font style="color:rgb(0, 128, 128);">0x8B</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x8B</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x77</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0xBE</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x68</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x61</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x86</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x68</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0xE5</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x63</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0xEE</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x84</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x35</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x6F</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x58</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0xC8</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x51</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x0F</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x6E</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x94</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x70</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0xE7</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x26</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x90</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0xB6</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x75</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0xEC</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x28</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0xAF</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0x14</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0xE2</font><font style="color:rgb(43, 48, 59);">,</font><font style="color:rgb(0, 128, 128);">0xE3</font></p>
+<p>那这样就可以得到flag了，逆向脚本如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">RC4_crypt</span><span class="params">(<span class="type">const</span> <span class="type">unsigned</span> <span class="type">char</span>* key, <span class="type">int</span> key_len, <span class="type">unsigned</span> <span class="type">char</span>* input, <span class="type">int</span> input_len)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> S[<span class="number">256</span>];</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">256</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        S[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">256</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        j = (j + S[i] + key[i % key_len]) % <span class="number">256</span>;</span><br><span class="line">        <span class="type">unsigned</span> <span class="type">char</span> temp = S[i];</span><br><span class="line">        S[i] = S[j];</span><br><span class="line">        S[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    i = <span class="number">0</span>;</span><br><span class="line">    j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; input_len; k++)</span><br><span class="line">    &#123;</span><br><span class="line">        i = (i + <span class="number">1</span>) % <span class="number">256</span>;</span><br><span class="line">        j = (j + S[i]) % <span class="number">256</span>;</span><br><span class="line">        <span class="type">unsigned</span> <span class="type">char</span> temp = S[i];</span><br><span class="line">        S[i] = S[j];</span><br><span class="line">        S[j] = temp;</span><br><span class="line">        input[k] ^= S[(S[i] + S[j]) % <span class="number">256</span>]^<span class="number">0x66</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> key[] = <span class="string">&quot;xmctf2026&quot;</span>;  </span><br><span class="line">    <span class="type">int</span> key_len = <span class="built_in">strlen</span>(key);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> encrypted_data[] = &#123;<span class="number">0x8B</span>,<span class="number">0x8B</span>,<span class="number">0x77</span>,<span class="number">0xBE</span>,<span class="number">0x68</span>,<span class="number">0x61</span>,<span class="number">0x86</span>,<span class="number">0x68</span>,<span class="number">0xE5</span>,<span class="number">0x63</span>,<span class="number">0xEE</span>,<span class="number">0x84</span>,<span class="number">0x35</span>,<span class="number">0x6F</span>,<span class="number">0x58</span>,<span class="number">0xC8</span>,<span class="number">0x51</span>,<span class="number">0x0F</span>,<span class="number">0x6E</span>,<span class="number">0x94</span>,<span class="number">0x70</span>,<span class="number">0xE7</span>,<span class="number">0x26</span>,<span class="number">0x90</span>,<span class="number">0xB6</span>,<span class="number">0x75</span>,<span class="number">0xEC</span>,<span class="number">0x28</span>,<span class="number">0xAF</span>,<span class="number">0x14</span>,<span class="number">0xE2</span>,<span class="number">0xE3</span>&#125;;  <span class="comment">// 替换为你的实际数据</span></span><br><span class="line">    <span class="type">int</span> data_len = <span class="keyword">sizeof</span>(encrypted_data) / <span class="keyword">sizeof</span>(encrypted_data[<span class="number">0</span>]);  <span class="comment">// 自动计算数据长度0xE8,0x2B,0x33,0x25,0xB2,0x55,0xE9,0x0D,0x5D,0xAA,0x69,0xFD,0x1B,0x47,0xD1,0x7C,0xA6,0xFF,0x52,0xE1,0x6C,0xE8,0x4C</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span>* data = (<span class="type">unsigned</span> <span class="type">char</span>*)<span class="built_in">malloc</span>(data_len);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; data_len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        data[i] = (<span class="type">unsigned</span> <span class="type">char</span>)encrypted_data[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    RC4_crypt((<span class="type">unsigned</span> <span class="type">char</span>*)key, key_len, data, data_len);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; data_len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, data[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>); </span><br><span class="line"></span><br><span class="line">    <span class="built_in">free</span>(data);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//xmctf&#123;lu4t1c_r3v3rs3_ch4ll3ng3!&#125;</span></span><br><span class="line"><span class="comment">//（字节码解析是问AI的但脚本是手敲的）</span></span><br></pre></td></tr></table></figure>
+<h2 id="mixtielele"><a class="markdownIt-Anchor" href="#mixtielele"></a> MixTielele</h2>
+<p>一道很有意思的安卓逆向。进入jadx中，主逻辑看不到什么，native调用啥都都没看到，看主逻辑周围的逻辑发现出现SHA256字样和一个native层调用</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package com.example.titlele;</span><br><span class="line"></span><br><span class="line">import android.content.Context;</span><br><span class="line">import dalvik.system.PathClassLoader;</span><br><span class="line">import java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* loaded from: classes4.dex */</span></span><br><span class="line">public final <span class="class"><span class="keyword">class</span> <span class="title">OO00OO0OO0000OOOOO</span> &#123;</span></span><br><span class="line">    private <span class="type">static</span> boolean sLoaded;</span><br><span class="line"></span><br><span class="line">    public <span class="type">static</span> <span class="type">void</span> <span class="title function_">load</span><span class="params">(Context ctx)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (sLoaded) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        File so = new File(ctx.getApplicationInfo().nativeLibraryDir, <span class="string">&quot;libflutter.so&quot;</span>);</span><br><span class="line">        PathClassLoader pcl = new PathClassLoader(so.getAbsolutePath(), ctx.getClassLoader());</span><br><span class="line">        try &#123;</span><br><span class="line">            Class.forName(<span class="string">&quot;com.example.titlele.OO00OO0OO00O0OO000&quot;</span>, <span class="literal">true</span>, pcl);</span><br><span class="line">            sLoaded = <span class="literal">true</span>;</span><br><span class="line">        &#125; catch (Throwable t) &#123;</span><br><span class="line">            throw new RuntimeException(<span class="string">&quot;load payload failed&quot;</span>, t);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://xn--libflutter-tm3px228ahdwc.so">调用了libflutter.so</a>，解包看IDA。但是发现这个so文件的IDA不一样<br />
+<img src="/blog_essay_picture/week5/2.png" alt="" /></p>
+<p><img src="blog_essay_picture/week5/3.png" alt="" /></p>
+<p>出现了前所未有的选择界面，DIE看一眼</p>
+<p><img src="blog_essay_picture/week5/4.png" alt="" /></p>
+<p>那就是apk伪装成so文件了，改后缀后还是jadx，发现定位不到主逻辑，开始乱翻，遍历完大部分功能后发现<br />
+<img src="blog_essay_picture/week5/5.png" alt="" /></p>
+<p>发现lib文件中有一个so文件的名字与题目名字一摸一样，并且在mainactivity里被load了，丢进IDA，发现如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">__int64 __fastcall <span class="title function_">AES</span><span class="params">(__int64 a1, __int64 a2, __int64 a3)</span></span><br><span class="line">&#123;</span><br><span class="line">  __int64 v3; <span class="comment">// x0</span></span><br><span class="line">  __int64 v4; <span class="comment">// x0</span></span><br><span class="line">  <span class="type">const</span> <span class="type">unsigned</span> __int8 *v5; <span class="comment">// x0</span></span><br><span class="line">  __int64 result; <span class="comment">// x0</span></span><br><span class="line">  <span class="type">int</span> v7; <span class="comment">// [xsp+18h] [xbp-98h]</span></span><br><span class="line">  <span class="type">void</span> *src; <span class="comment">// [xsp+20h] [xbp-90h]</span></span><br><span class="line">  __int64 v9; <span class="comment">// [xsp+40h] [xbp-70h]</span></span><br><span class="line">  <span class="type">int</span> v10; <span class="comment">// [xsp+5Ch] [xbp-54h]</span></span><br><span class="line">  <span class="type">int</span> v11; <span class="comment">// [xsp+5Ch] [xbp-54h]</span></span><br><span class="line">  __int64 v12; <span class="comment">// [xsp+60h] [xbp-50h]</span></span><br><span class="line">  _QWORD v16[<span class="number">3</span>]; <span class="comment">// [xsp+88h] [xbp-28h] BYREF</span></span><br><span class="line">  <span class="type">int</span> v17; <span class="comment">// [xsp+A4h] [xbp-Ch] BYREF</span></span><br><span class="line">  __int64 v18; <span class="comment">// [xsp+A8h] [xbp-8h]</span></span><br><span class="line"></span><br><span class="line">  v18 = *(_ReadStatusReg(TPIDR_EL0) + <span class="number">40</span>);</span><br><span class="line">  v12 = EVP_CIPHER_CTX_new();</span><br><span class="line">  v3 = sub_D65E4(a1);</span><br><span class="line">  sub_D62B0(v16, v3 + <span class="number">16</span>);</span><br><span class="line">  v9 = EVP_aes_128_cbc();</span><br><span class="line">  EVP_EncryptInit_ex(v12, v9, <span class="number">0</span>, a2, a3);</span><br><span class="line">  v7 = sub_D63C4(v16);</span><br><span class="line">  src = sub_D6608(a1);</span><br><span class="line">  sub_D65E4(a1);</span><br><span class="line">  EVP_EncryptUpdate(v12, v7, &amp;v17, src);</span><br><span class="line">  v10 = v17;</span><br><span class="line">  v4 = sub_D63C4(v16);</span><br><span class="line">  EVP_EncryptFinal_ex(v12, v4 + v17, &amp;v17);</span><br><span class="line">  v11 = v10 + v17;</span><br><span class="line">  EVP_CIPHER_CTX_free(v12);</span><br><span class="line">  v5 = sub_D63C4(v16);</span><br><span class="line">  base64Encode(v5, v11);</span><br><span class="line">  result = sub_D63EC(v16);</span><br><span class="line">  _ReadStatusReg(TPIDR_EL0);</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发现调用了base64和AESCBC</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">__int64 __usercall rsaEncryptKey@&lt;X0&gt;(<span class="type">const</span> <span class="type">unsigned</span> __int8 *a1@&lt;X0&gt;, <span class="type">unsigned</span> <span class="type">int</span> a2@&lt;W1&gt;, __int64 a3@&lt;X8&gt;)</span><br><span class="line">&#123;</span><br><span class="line">  __int64 result; <span class="comment">// x0</span></span><br><span class="line">  __int64 v4; <span class="comment">// x0</span></span><br><span class="line">  <span class="type">const</span> <span class="type">unsigned</span> __int8 *v5; <span class="comment">// x0</span></span><br><span class="line">  <span class="type">int</span> v7; <span class="comment">// [xsp+38h] [xbp-58h]</span></span><br><span class="line">  <span class="type">int</span> v8; <span class="comment">// [xsp+3Ch] [xbp-54h]</span></span><br><span class="line">  __int64 bio_RSA_PUBKEY; <span class="comment">// [xsp+40h] [xbp-50h]</span></span><br><span class="line">  __int64 v10; <span class="comment">// [xsp+48h] [xbp-48h]</span></span><br><span class="line">  _QWORD v13[<span class="number">4</span>]; <span class="comment">// [xsp+70h] [xbp-20h] BYREF</span></span><br><span class="line"></span><br><span class="line">  v13[<span class="number">3</span>] = *(_ReadStatusReg(TPIDR_EL0) + <span class="number">40</span>);</span><br><span class="line">  v10 = BIO_new_mem_buf(</span><br><span class="line">          <span class="string">&quot;-----BEGIN PUBLIC KEY-----\n&quot;</span></span><br><span class="line">          <span class="string">&quot;MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAovOZy74DuQ55Nr/mOKROqHjcjVF8V2OrRPEAXz6x61z+jgUBZ6aIFLh3S0/6YSO9/O&quot;</span></span><br><span class="line">          <span class="string">&quot;lWIsrkaJlISCPdrLOjnvSwt6IOiWKVbzcxqyblR8MHbM74Lp7l9T8M9rKqQmjiCFPcbcpyAsABg5CwgthfBo26BIusvptmb+rHXO5kylRHTMbX&quot;</span></span><br><span class="line">          <span class="string">&quot;rBfC5Yagp25M7bCbpg7JqtR4uaaKg9c849+BrvYq5PHtfDMAbUVSCbXG17/lR/1WENQSbPTAgdtmkUvdcwV14iHYIhuspiXnIa/Z5Ze/xekUvw&quot;</span></span><br><span class="line">          <span class="string">&quot;YVk09/pU7T0zSVxR+gRUhNPtKZYiZ/w7alSAVjvGooOSc+ps+7KVCkyQIDAQAB\n&quot;</span></span><br><span class="line">          <span class="string">&quot;-----END PUBLIC KEY-----&quot;</span>,</span><br><span class="line">          <span class="number">0xFFFFFFFFL</span>L);</span><br><span class="line">  bio_RSA_PUBKEY = PEM_read_bio_RSA_PUBKEY(v10, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  BIO_free(v10);</span><br><span class="line">  <span class="keyword">if</span> ( bio_RSA_PUBKEY )</span><br><span class="line">  &#123;</span><br><span class="line">    v8 = RSA_size(bio_RSA_PUBKEY);</span><br><span class="line">    sub_D62B0(v13, v8);</span><br><span class="line">    sub_D63C4(v13);</span><br><span class="line">    v7 = RSA_public_encrypt(a2, a1, v4, bio_RSA_PUBKEY, <span class="number">1</span>);</span><br><span class="line">    RSA_free(bio_RSA_PUBKEY);</span><br><span class="line">    <span class="keyword">if</span> ( v7 == <span class="number">-1</span> )</span><br><span class="line">    &#123;</span><br><span class="line">      sub_D6234(a3, &amp;byte_96973);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">      sub_D63C4(v13);</span><br><span class="line">      base64Encode(v5, v7);</span><br><span class="line">    &#125;</span><br><span class="line">    result = sub_D63EC(v13);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    result = sub_D6234(a3, &amp;byte_96973);</span><br><span class="line">  &#125;</span><br><span class="line">  _ReadStatusReg(TPIDR_EL0);</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>发现有RSA和base64。至此很多逻辑都出来了但是执行流还不知道，没找到数据也不知道怎么个逆向法，重新研究一遍。发现apk中调用了libflutter.so进行异或，处理完后回来又调用了一次base64，但后面的执行流和攻击手段我没研究出来，就给AI跑了一次，得到如下逆向脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">MixTielele APK - CTF Exploit</span></span><br><span class="line"><span class="string">Challenge: please login as admin</span></span><br><span class="line"><span class="string">Flag: xmctf&#123;adde035c89b5fb477e43b1ef78c8d890&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">pip install pycryptodome</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os, base64, struct, json, urllib.request, urllib.error</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES, PKCS1_v1_5</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.Padding <span class="keyword">import</span> pad</span><br><span class="line"></span><br><span class="line"><span class="comment"># RSA public key extracted from libmixtitlele.so .rodata at 0x97b15</span></span><br><span class="line">RSA_PUB_KEY = <span class="string">&quot;&quot;&quot;-----BEGIN PUBLIC KEY-----</span></span><br><span class="line"><span class="string">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAovOZy74DuQ55Nr/mOKRO</span></span><br><span class="line"><span class="string">qHjcjVF8V2OrRPEAXz6x61z+jgUBZ6aIFLh3S0/6YSO9/OlWIsrkaJlISCPdrLOj</span></span><br><span class="line"><span class="string">nvSwt6IOiWKVbzcxqyblR8MHbM74Lp7l9T8M9rKqQmjiCFPcbcpyAsABg5CwgthfB</span></span><br><span class="line"><span class="string">o26BIusvptmb+rHXO5kylRHTMbXrBfC5Yagp25M7bCbpg7JqtR4uaaKg9c849+Brv</span></span><br><span class="line"><span class="string">Yq5PHtfDMAbUVSCbXG17/lR/1WENQSbPTAgdtmkUvdcwV14iHYIhuspiXnIa/Z5Z</span></span><br><span class="line"><span class="string">e/xekUvwYVk09/pU7T0zSVxR+gRUhNPtKZYiZ/w7alSAVjvGooOSc+ps+7KVCkyQ</span></span><br><span class="line"><span class="string">IDAQAB</span></span><br><span class="line"><span class="string">-----END PUBLIC KEY-----&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lcg_xor</span>(<span class="params">data: <span class="built_in">bytes</span></span>) -&gt; <span class="built_in">bytes</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;LCG-based XOR stream cipher from com.example.utils.Encrypt (classes6.dex in libflutter.so)&quot;&quot;&quot;</span></span><br><span class="line">    INITIAL_SEED = <span class="number">622918</span></span><br><span class="line">    MULTIPLIER   = <span class="number">1664525</span></span><br><span class="line">    INCREMENT    = <span class="number">1013904223</span></span><br><span class="line">    MASK32       = <span class="number">0xFFFFFFFF</span></span><br><span class="line">    result = <span class="built_in">bytearray</span>(<span class="built_in">len</span>(data))</span><br><span class="line">    key = INITIAL_SEED</span><br><span class="line">    <span class="keyword">for</span> i, b <span class="keyword">in</span> <span class="built_in">enumerate</span>(data):</span><br><span class="line">        result[i] = b ^ (key &amp; <span class="number">0xFF</span>)</span><br><span class="line">        key = (MULTIPLIER * key + INCREMENT) &amp; MASK32</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">bytes</span>(result)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">build_protobuf</span>(<span class="params">user: <span class="built_in">str</span>, is_hacker: <span class="built_in">bool</span></span>) -&gt; <span class="built_in">bytes</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Serialize LoginInfo&#123;user, isHacker&#125; protobuf (field 1=string, field 2=bool)&quot;&quot;&quot;</span></span><br><span class="line">    buf = <span class="built_in">bytearray</span>()</span><br><span class="line">    ub = user.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    buf += <span class="built_in">bytes</span>([<span class="number">0x0a</span>, <span class="built_in">len</span>(ub)]) + ub     <span class="comment"># field 1: string user</span></span><br><span class="line">    buf += <span class="built_in">bytes</span>([<span class="number">0x10</span>, <span class="number">0x01</span> <span class="keyword">if</span> is_hacker <span class="keyword">else</span> <span class="number">0x00</span>])  <span class="comment"># field 2: bool isHacker</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">bytes</span>(buf)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">build_login_info</span>(<span class="params">user: <span class="built_in">str</span>, is_hacker: <span class="built_in">bool</span> = <span class="literal">False</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Mimics LogInfo() hidden in libflutter.so: proto → LCG-XOR → base64&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> base64.b64encode(lcg_xor(build_protobuf(user, is_hacker))).decode()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">enc_titlele</span>(<span class="params">login_info_b64: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Reimplements native EncTitlele() from libmixtitlele.so:</span></span><br><span class="line"><span class="string">      - AES-128-CBC with random key, zero IV (memset after RAND_bytes)</span></span><br><span class="line"><span class="string">      - RSA-PKCS1v15 wraps the AES key</span></span><br><span class="line"><span class="string">      - Returns JSON: &#123;&quot;a1&quot;:&quot;&lt;rsa_b64&gt;&quot;, &quot;b2&quot;:&quot;&lt;aes_b64&gt;&quot;&#125;</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    rsa_key = RSA.import_key(RSA_PUB_KEY)</span><br><span class="line"></span><br><span class="line">    aes_key = os.urandom(<span class="number">16</span>)          <span class="comment"># RAND_bytes(buf, 16)</span></span><br><span class="line">    iv      = <span class="built_in">bytes</span>(<span class="number">16</span>)               <span class="comment"># __memset_chk zeroes the IV buffer</span></span><br><span class="line"></span><br><span class="line">    plaintext  = login_info_b64.encode(<span class="string">&#x27;ascii&#x27;</span>)</span><br><span class="line">    ciphertext = AES.new(aes_key, AES.MODE_CBC, iv).encrypt(pad(plaintext, <span class="number">16</span>))</span><br><span class="line">    enc_key    = PKCS1_v1_5.new(rsa_key).encrypt(aes_key)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> json.dumps(&#123;</span><br><span class="line">        <span class="string">&quot;a1&quot;</span>: base64.b64encode(enc_key).decode(),</span><br><span class="line">        <span class="string">&quot;b2&quot;</span>: base64.b64encode(ciphertext).decode(),</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">exploit</span>():</span><br><span class="line">    SERVER_URL = <span class="string">&quot;http://120.48.104.4:2788/24ab99d75d3327cf3c46/login&quot;</span></span><br><span class="line"></span><br><span class="line">    login_info = build_login_info(<span class="string">&quot;admin&quot;</span>, is_hacker=<span class="literal">False</span>)</span><br><span class="line">    payload    = enc_titlele(login_info)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[*] LoginInfo (admin): <span class="subst">&#123;login_info&#125;</span>&quot;</span>)</span><br><span class="line">    req = urllib.request.Request(</span><br><span class="line">        SERVER_URL,</span><br><span class="line">        data=payload.encode(<span class="string">&#x27;utf-8&#x27;</span>),</span><br><span class="line">        headers=&#123;<span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span>&#125;,</span><br><span class="line">        method=<span class="string">&quot;POST&quot;</span>,</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">with</span> urllib.request.urlopen(req, timeout=<span class="number">10</span>) <span class="keyword">as</span> r:</span><br><span class="line">        flag = r.read().decode()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[+] Flag: <span class="subst">&#123;flag&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    exploit()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="easyre"><a class="markdownIt-Anchor" href="#easyre"></a> easyre</h2>
+<p>第一次遇到这种双端调试的题，搞了很久，问了些师傅才勉勉强强做出来。</p>
+<p>双端同时进入IDA动调，一步步步过，可以调到一些比较关键的输出地址。</p>
+<p>首先可以在server的base+0x33650处下长度为0x20的读写断点，然后在client的main随便下一个断点，直接开跑一直步过可以得到<br />
+<img src="blog_essay_picture/week5/6.png" alt="" /></p>
+<p>在这个地方会因为我们之前下的读写断点而停下来，一直F9可以得到</p>
+<p><img src="blog_essay_picture/week5/7.png" alt="" /></p>
+<p>目标MD5值，解出来发现是ctfer，于是推出调试，退掉之前下的断点重新调试一次，按住F8不松手，等出现字符串的时候立刻松手F2下断点就可以找到<br />
+<img src="blog_essay_picture/week5/8.png" alt="" /></p>
+<p>那么全都出了。</p>
+
+    </div>
+    <footer class="article-footer">
+        <a class="article-category-link" href="/categories/Weekly/" title="Weekly" data-aos="zoom-in">Weekly</a>
+
+      
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    <div class="article-nav-link-wrap right">
+        <img data-src="https://s41.ax1x.com/2026/03/09/peisg9x.jpg" data-sizes="auto" alt="Week1" class="lazyload">
+      <a href="/2026/03/08/1/" aria-label="后一篇: Week1"  title="后一篇: Week1"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+          Week1
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2025-2026
+        <span class="footer-info-sep rotate"></span>
+      LUNCHAH
+    </div>
+      <div>
+        基于&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        32.4k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        02:58
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ez_uds"><span class="toc-number">2.</span> <span class="toc-text"> ez_uds</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#illusion"><span class="toc-number">3.</span> <span class="toc-text"> illusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%9A%84%E7%A7%98%E5%AF%86"><span class="toc-number">4.</span> <span class="toc-text"> 移动的秘密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ezfinger"><span class="toc-number">5.</span> <span class="toc-text"> ezFinger</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hajimi"><span class="toc-number">6.</span> <span class="toc-text"> hajimi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hulua"><span class="toc-number">7.</span> <span class="toc-text"> Hulua</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mixtielele"><span class="toc-number">8.</span> <span class="toc-text"> MixTielele</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#easyre"><span class="toc-number">9.</span> <span class="toc-text"> easyre</span></a></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/head.jpg" data-sizes="auto" alt="LUNCHAH" class="lazyload">
+  <div class="sidebar-author-name">LUNCHAH</div>
+  <div class="sidebar-description">逆向小手子</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">7</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:2135537336@qq.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/LUNCHAH itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-bilibili sidebar-social-icon">
+      <a href=https://space.bilibili.com/485931453?spm_id_from=333.1007.0.0 itemprop="url" target="_blank" aria-label="bilibili" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-steam sidebar-social-icon">
+      <a href=https://steamcommunity.com/profiles/76561199010313755/ itemprop="url" target="_blank" aria-label="steam" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "LUNCHAH",
+          title: "Week5",
+          url: "http://example.com/2026/04/02/Week5/",
+          excerpt: "",
+          description: "",
+          stripContent: " 前言 主要是做了星盟的招新赛，内容很多且很难，借助了AI，一些知识点后面会再汇总出文章  ez_uds 题目给了算法逻辑，进入程序后发现给了如下提示 123456789101112131415161718==============================   ECU UDS Security Server==============================Supported Service:  0x27  SecurityAccessUsage:  27 01        ",
+          date: "Thu Apr 02 2026 00:00:00 GMT+0800",
+          updated: "Tue Apr 07 2026 16:23:35 GMT+0800",
+          cover: "https://s41.ax1x.com/2026/04/07/peUQO4P.jpg",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>
