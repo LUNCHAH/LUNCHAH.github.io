@@ -1,3 +1,9 @@
+title: Week5
+date: 2026-4-2
+category: weekly
+cover: https://s41.ax1x.com/2026/04/07/peUQO4P.jpg
+---
+
 ## 前言
 主要是做了星盟的招新赛，内容很多且很难，借助了AI，一些知识点后面会再汇总出文章
 
