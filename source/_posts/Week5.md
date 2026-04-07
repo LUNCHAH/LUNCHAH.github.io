@@ -111,6 +111,7 @@ LABEL_10:
 
 ## ezFinger
 这道题由于我完全没有写固件的经验，所以我是AI一把梭的
+
 ![](/blog_essay_picture/week5/1.png)
 
 ## hajimi
@@ -288,6 +289,7 @@ public final class OO00OO0OO0000OOOOO {
 ```
 
 调用了libflutter.so，解包看IDA。但是发现这个so文件的IDA不一样
+
 ![](/blog_essay_picture/week5/2.png)
 
 ![](blog_essay_picture/week5/3.png)
@@ -297,6 +299,7 @@ public final class OO00OO0OO0000OOOOO {
 ![](blog_essay_picture/week5/4.png)
 
 那就是apk伪装成so文件了，改后缀后还是jadx，发现定位不到主逻辑，开始乱翻，遍历完大部分功能后发现
+
 ![](blog_essay_picture/week5/5.png)
 
 发现lib文件中有一个so文件的名字与题目名字一摸一样，并且在mainactivity里被load了，丢进IDA，发现如下
@@ -502,6 +505,7 @@ if __name__ == "__main__":
 双端同时进入IDA动调，一步步步过，可以调到一些比较关键的输出地址。
 
 首先可以在server的base+0x33650处下长度为0x20的读写断点，然后在client的main随便下一个断点，直接开跑一直步过可以得到
+
 ![](blog_essay_picture/week5/6.png)
 
 在这个地方会因为我们之前下的读写断点而停下来，一直F9可以得到
@@ -509,6 +513,7 @@ if __name__ == "__main__":
 ![](blog_essay_picture/week5/7.png)
 
 目标MD5值，解出来发现是ctfer，于是推出调试，退掉之前下的断点重新调试一次，按住F8不松手，等出现字符串的时候立刻松手F2下断点就可以找到
+
 ![](blog_essay_picture/week5/8.png)
 
 那么全都出了。
