@@ -104,8 +104,8 @@ LABEL_10:
 将我们的输入进行位移，与xmmword_3080与xmmword_3090进行对比，但这里与MD5无关，后面也没拿来调用，只是拿来混淆视听检验的，或者说这是爆破MD5时的约束条件，所以我们可以直接来逆向MD5，爆破可得flag
 
 ## ezFinger
-这道题由于我完全没有写固件的经验，所以我是AI一把梭的<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/jpeg/62008266/1774797555085-239f5c99-35d6-4cc3-bfa4-f4a4f4fe1916.jpeg)
+这道题由于我完全没有写固件的经验，所以我是AI一把梭的
+![](/blog_essay_picture/week5/1.png)
 
 ## hajimi
 一道很抽象的题目不借助AI我完全没思路。打开后发现直接给了源码和一个未知的压缩包。源码中有语句
@@ -281,19 +281,17 @@ public final class OO00OO0OO0000OOOOO {
 }
 ```
 
-调用了libflutter.so，解包看IDA。但是发现这个so文件的IDA不一样<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1774849222957-e0bab905-271e-4fed-8527-85f2b7c55ced.png)
+调用了libflutter.so，解包看IDA。但是发现这个so文件的IDA不一样
+![](/blog_essay_picture/week5/3.png)
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1774849243134-f4f8149a-9762-4ba4-a124-3da1f13b9653.png)
+![](blog_essay_picture/week5/4.png)
 
 出现了前所未有的选择界面，DIE看一眼
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1774849450272-b6ec9dff-b799-44d4-ba55-2ac3012ce6cb.png)
+![](blog_essay_picture/week5/5.png)
 
-那就是apk伪装成so文件了，改后缀后还是jadx，发现定位不到主逻辑，开始乱翻，遍历完大部分功能后发现<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1774852527666-21c20e7c-4d91-40d7-9b5a-f3d1c62840c1.png)
+那就是apk伪装成so文件了，改后缀后还是jadx，发现定位不到主逻辑，开始乱翻，遍历完大部分功能后发现
+![](blog_essay_picture/week5/6.png)
 
 发现lib文件中有一个so文件的名字与题目名字一摸一样，并且在mainactivity里被load了，丢进IDA，发现如下
 
@@ -497,16 +495,15 @@ if __name__ == "__main__":
 
 双端同时进入IDA动调，一步步步过，可以调到一些比较关键的输出地址。
 
-首先可以在server的base+0x33650处下长度为0x20的读写断点，然后在client的main随便下一个断点，直接开跑一直步过可以得到<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1774875895745-518bb92e-347e-47f2-be8d-1ad25830068a.png)
+首先可以在server的base+0x33650处下长度为0x20的读写断点，然后在client的main随便下一个断点，直接开跑一直步过可以得到
+![](blog_essay_picture/week5/7.png)
 
 在这个地方会因为我们之前下的读写断点而停下来，一直F9可以得到
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1774875987916-36c1a26f-e319-4577-a921-42a171bd6ac0.png)
+![](blog_essay_picture/week5/8.png)
 
-目标MD5值，解出来发现是ctfer，于是推出调试，退掉之前下的断点重新调试一次，按住F8不松手，等出现字符串的时候立刻松手F2下断点就可以找到<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/jpeg/62008266/1774876275196-9f4bdd96-0503-4488-a11d-83f959f2252d.jpeg)
+目标MD5值，解出来发现是ctfer，于是推出调试，退掉之前下的断点重新调试一次，按住F8不松手，等出现字符串的时候立刻松手F2下断点就可以找到
+![](blog_essay_picture/week5/9.png)
 
 那么全都出了。
 
