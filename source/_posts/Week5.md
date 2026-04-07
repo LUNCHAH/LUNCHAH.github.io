@@ -1,6 +1,6 @@
 title: Week5
 date: 2026-4-2
-category: weekly
+category: Weekly
 cover: https://s41.ax1x.com/2026/04/07/peUQO4P.jpg
 ---
 
