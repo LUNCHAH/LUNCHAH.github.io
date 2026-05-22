@@ -1,6 +1,6 @@
 title: furryCTF
 date: 2026-01-30
-cover: https://s41.ax1x.com/2026/02/16/pZLbTl8.jpg
+cover: https://s41.ax1x.com/2026/05/22/pmpCQBR.jpg
 category: GAME
 ---
 
