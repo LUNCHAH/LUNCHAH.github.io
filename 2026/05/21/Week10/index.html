@@ -1,0 +1,588 @@
+  <!DOCTYPE html>
+  <html lang="zh-CN"  
+      data-theme-mode="auto"
+  >
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
+  <title>
+    Week10 | LUNCHAH&#39;s Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="FridaLab-0x1 首先jadx，发现代码被严重混淆了，查阅博客后发现可以按照下图的方式进行排除  勾选后混乱代码的可读性大大增强。 然后就有两个逆向点(后面看了官方solution后发现有三个)，一个是静态逆向 123456789101112131415161718192021void check(int i, int i2) &#123;       if ((i * 2) + 4 &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Week10">
+<meta property="og:url" content="http://example.com/2026/05/21/Week10/index.html">
+<meta property="og:site_name" content="LUNCHAH&#39;s Blog">
+<meta property="og:description" content="FridaLab-0x1 首先jadx，发现代码被严重混淆了，查阅博客后发现可以按照下图的方式进行排除  勾选后混乱代码的可读性大大增强。 然后就有两个逆向点(后面看了官方solution后发现有三个)，一个是静态逆向 123456789101112131415161718192021void check(int i, int i2) &#123;       if ((i * 2) + 4 &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/blog_essay_picture/Week10/1.png">
+<meta property="og:image" content="http://example.com/blog_essay_picture/Week10/2.png">
+<meta property="og:image" content="http://example.com/blog_essay_picture/Week10/3.png">
+<meta property="og:image" content="http://example.com/blog_essay_picture/Week10/4.png">
+<meta property="og:image" content="http://example.com/blog_essay_picture/Week10/5.png">
+<meta property="og:image" content="http://example.com/blog_essay_picture/Week10/6.png">
+<meta property="og:image" content="http://example.com/blog_essay_picture/Week10/7.png">
+<meta property="og:image" content="http://example.com/blog_essay_picture/Week10/8.png">
+<meta property="article:published_time" content="2026-05-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-22T03:01:09.379Z">
+<meta property="article:author" content="LUNCHAH">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/blog_essay_picture/Week10/1.png">
+    <link rel="alternate" href="/atom.xml" title="LUNCHAH's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">首页</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">归档</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">关于</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/friend">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">友链</span>
+        </span>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+    <picture></picture>
+    <img  fetchpriority="high" src="https://s41.ax1x.com/2026/05/22/pmSzy6A.jpg" alt="Week10">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Week10</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#fridalab-0x1"><span class="toc-number">1.</span> <span class="toc-text"> FridaLab-0x1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fridalab-0x2"><span class="toc-number">2.</span> <span class="toc-text"> FridaLab-0x2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fridalab-0x3"><span class="toc-number">3.</span> <span class="toc-text"> FridaLab-0x3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fridalab-0x4"><span class="toc-number">4.</span> <span class="toc-text"> FridaLab-0x4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fridalab-0x5"><span class="toc-number">5.</span> <span class="toc-text"> FridaLab-0x5</span></a></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/head.jpg" data-sizes="auto" alt="LUNCHAH" class="lazyload">
+  <div class="sidebar-author-name">LUNCHAH</div>
+  <div class="sidebar-description">逆向小手子</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">9</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:2135537336@qq.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/LUNCHAH itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-bilibili sidebar-social-icon">
+      <a href=https://space.bilibili.com/485931453?spm_id_from=333.1007.0.0 itemprop="url" target="_blank" aria-label="bilibili" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-steam sidebar-social-icon">
+      <a href=https://steamcommunity.com/profiles/76561199010313755/ itemprop="url" target="_blank" aria-label="steam" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-Week10" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-05-20T16:00:00.000Z" itemprop="datePublished">2026-05-21</time>
+    <time style="display: none;" id="post-update-time">2026-05-22</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h2 id="fridalab-0x1"><a class="markdownIt-Anchor" href="#fridalab-0x1"></a> FridaLab-0x1</h2>
+<p>首先jadx，发现代码被严重混淆了，查阅博客后发现可以按照下图的方式进行排除</p>
+<p><img src="/blog_essay_picture/Week10/1.png" alt="" /></p>
+<p>勾选后混乱代码的可读性大大增强。</p>
+<p>然后就有两个逆向点(后面看了官方solution后发现有三个)，一个是静态逆向</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">check</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> i2)</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> ((i * <span class="number">2</span>) + <span class="number">4</span> == i2) &#123;</span><br><span class="line">           Toast.makeText(getApplicationContext(), <span class="string">&quot;Yey you guessed it right&quot;</span>, <span class="number">1</span>).show();</span><br><span class="line">           <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">           <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i3</span> <span class="operator">=</span> <span class="number">0</span>; i3 &lt; <span class="number">20</span>; i3++) &#123;</span><br><span class="line">               <span class="type">char</span> <span class="variable">cCharAt</span> <span class="operator">=</span> <span class="string">&quot;AMDYV&#123;WVWT_CJJF_0s1&#125;&quot;</span>.charAt(i3);</span><br><span class="line">               <span class="keyword">if</span> (cCharAt &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; cCharAt &lt;= <span class="string">&#x27;z&#x27;</span>) &#123;</span><br><span class="line">                   cCharAt = (<span class="type">char</span>) (cCharAt - <span class="number">21</span>);</span><br><span class="line">                   <span class="keyword">if</span> (cCharAt &lt; <span class="string">&#x27;a&#x27;</span>) &#123;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125; <span class="keyword">else</span> <span class="keyword">if</span> (cCharAt &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; cCharAt &lt;= <span class="string">&#x27;Z&#x27;</span> &amp;&amp; (cCharAt = (<span class="type">char</span>) (cCharAt - <span class="number">21</span>)) &lt; <span class="string">&#x27;A&#x27;</span>) &#123;</span><br><span class="line">                   cCharAt = (<span class="type">char</span>) (cCharAt + <span class="number">26</span>);</span><br><span class="line">               &#125;</span><br><span class="line">               sb.append(cCharAt);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="built_in">this</span>.t1.setText(sb.toString());</span><br><span class="line">           <span class="keyword">return</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       Toast.makeText(getApplicationContext(), <span class="string">&quot;Try again&quot;</span>, <span class="number">1</span>).show();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>由于这里给了目标字符串和逻辑，我们直接抄就能抄过来，不过其实这就是个位移密码(凯撒)，左移21位，可以在线工具一把梭<br />
+<img src="/blog_essay_picture/Week10/2.png" alt="" /></p>
+<p>但是这样就少了很多趣味，并且学不到什么frida的知识，所以我们重点看fridahook</p>
+<p>进入mainactivity，发现如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> get_random()</span><br><span class="line"><span class="type">int</span> <span class="title function_">get_random</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Random</span>().nextInt(<span class="number">100</span>);</span><br><span class="line">   &#125;</span><br><span class="line">  <span class="keyword">if</span> ((i * <span class="number">2</span>) + <span class="number">4</span> == i2) &#123;</span><br><span class="line">           Toast.makeText(getApplicationContext(), <span class="string">&quot;Yey you guessed it right&quot;</span>, <span class="number">1</span>).show();</span><br></pre></td></tr></table></figure>
+<p>调用了random函数，意味着我们可以hook这个点。官方solution中的解法在我frida17.6.2中并不适用，没办法用spawn来hook，需要attach，脚本如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Java.perform(function() &#123;</span><br><span class="line">    <span class="type">var</span> <span class="variable">MainActivity</span> <span class="operator">=</span> Java.use(<span class="string">&quot;com.ad2001.frida0x1.MainActivity&quot;</span>);</span><br><span class="line">    MainActivity.get_random.implementation = function() &#123;</span><br><span class="line">        console.log(<span class="string">&quot;attached&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在powershell中输入。这里有一个细节<font style="color:#DF2A3F;">我们使用的是implementation，这个语句的使用范围是当我们需要替换掉某个函数，将某个函数的参数强行赋值，或者说更改某个函数的行为时我们才会用这个语句。</font></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida <span class="literal">-U</span> <span class="literal">-n</span> <span class="string">&quot;Frida 0x1&quot;</span> <span class="literal">-l</span> <span class="string">&quot;hook.js&quot;</span></span><br></pre></td></tr></table></figure>
+<p>由于我们是attach上的，所以我们需要让程序刷新一次，经搜索得知，当我们旋转虚拟机的屏幕后，虚拟机会销毁当前activity并重启，这样我们就能强行attach上了。又由源码中的计算公式得知，当我们return 5时，我们需要输入14，输入后得到flag</p>
+<p><img src="/blog_essay_picture/Week10/3.png" alt="" /></p>
+<h2 id="fridalab-0x2"><a class="markdownIt-Anchor" href="#fridalab-0x2"></a> FridaLab-0x2</h2>
+<p>逻辑清晰的题，主逻辑如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> TextView t1;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span> <span class="comment">// androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        t1 = (TextView) findViewById(R.id.textview);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">get_flag</span><span class="params">(<span class="type">int</span> a)</span> <span class="keyword">throws</span> BadPaddingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException &#123;</span><br><span class="line">        <span class="keyword">if</span> (a == <span class="number">4919</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="type">SecretKeySpec</span> <span class="variable">secretKeySpec</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SecretKeySpec</span>(<span class="string">&quot;HILLBILLWILLBINN&quot;</span>.getBytes(), <span class="string">&quot;AES&quot;</span>);</span><br><span class="line">                <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(<span class="string">&quot;AES/CBC/PKCS5Padding&quot;</span>);</span><br><span class="line">                <span class="type">IvParameterSpec</span> <span class="variable">iv</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IvParameterSpec</span>(<span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">16</span>]);</span><br><span class="line">                cipher.init(<span class="number">2</span>, secretKeySpec, iv);</span><br><span class="line">                <span class="type">byte</span>[] decryptedBytes = cipher.doFinal(Base64.decode(<span class="string">&quot;q7mBQegjhpfIAr0OgfLvH0t/D0Xi0ieG0vd+8ZVW+b4=&quot;</span>, <span class="number">0</span>));</span><br><span class="line">                <span class="type">String</span> <span class="variable">decryptedText</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(decryptedBytes);</span><br><span class="line">                t1.setText(decryptedText);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到当a=4919时app就会实现自解密。运行app回显如下<br />
+<img src="/blog_essay_picture/Week10/4.png" alt="" /></p>
+<p>可以看到app并没有给出一个可以输入的地方，那么我们就只能通过frida强制赋值然后让程序输出flag。hook脚本如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Java.perform(function() &#123;</span><br><span class="line">    <span class="type">var</span> <span class="variable">a</span> <span class="operator">=</span> Java.use(<span class="string">&quot;com.ad2001.frida0x2.MainActivity&quot;</span>);</span><br><span class="line">    a.get_flag(<span class="number">4919</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>输入后可以看到app回显如下</p>
+<p><img src="/blog_essay_picture/Week10/5.png" alt="" /></p>
+<p>便可以得到flag了</p>
+<h2 id="fridalab-0x3"><a class="markdownIt-Anchor" href="#fridalab-0x3"></a> FridaLab-0x3</h2>
+<p>这道题跟0x2的考察内容差不多，main逻辑如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* loaded from: classes3.dex */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    TextView t1;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span> <span class="comment">// androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="type">Button</span> <span class="variable">btn</span> <span class="operator">=</span> (Button) findViewById(R.id.button);</span><br><span class="line">        <span class="built_in">this</span>.t1 = (TextView) findViewById(R.id.textView);</span><br><span class="line">        btn.setOnClickListener(<span class="keyword">new</span> <span class="title class_">View</span>.OnClickListener() &#123; <span class="comment">// from class: com.ad2001.frida0x3.MainActivity.1</span></span><br><span class="line">            <span class="meta">@Override</span> <span class="comment">// android.view.View.OnClickListener</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onClick</span><span class="params">(View v)</span> <span class="keyword">throws</span> BadPaddingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeyException &#123;</span><br><span class="line">                <span class="keyword">if</span> (Checker.code == <span class="number">512</span>) &#123;</span><br><span class="line">                    <span class="type">byte</span>[] bArr = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">0</span>];</span><br><span class="line">                    Toast.makeText(MainActivity.<span class="built_in">this</span>.getApplicationContext(), <span class="string">&quot;YOU WON!!!&quot;</span>, <span class="number">1</span>).show();</span><br><span class="line">                    <span class="type">byte</span>[] KeyData = <span class="string">&quot;glass123&quot;</span>.getBytes();</span><br><span class="line">                    <span class="type">SecretKeySpec</span> <span class="variable">KS</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SecretKeySpec</span>(KeyData, <span class="string">&quot;Blowfish&quot;</span>);</span><br><span class="line">                    <span class="type">byte</span>[] ecryptedtexttobytes = Base64.getDecoder().decode(<span class="string">&quot;MKxsZsY9Usw3ozXKKzTF0ymIaC8rs0AY74GnaKqkUrk=&quot;</span>);</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(<span class="string">&quot;Blowfish&quot;</span>);</span><br><span class="line">                        cipher.init(<span class="number">2</span>, KS);</span><br><span class="line">                        <span class="type">byte</span>[] decrypted = cipher.doFinal(ecryptedtexttobytes);</span><br><span class="line">                        <span class="type">String</span> <span class="variable">decryptedString</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(decrypted, Charset.forName(<span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line">                        MainActivity.<span class="built_in">this</span>.t1.setText(decryptedString);</span><br><span class="line">                        <span class="keyword">return</span>;</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InvalidKeyException e) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e2) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e2);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (BadPaddingException e3) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e3);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (IllegalBlockSizeException e4) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e4);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (NoSuchPaddingException e5) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e5);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                Toast.makeText(MainActivity.<span class="built_in">this</span>.getApplicationContext(), <span class="string">&quot;TRY AGAIN&quot;</span>, <span class="number">1</span>).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到当Checker.code=512时app就会进行自解密回显flag，追踪Checker类，其逻辑如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ad2001.frida0x3;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* loaded from: classes3.dex */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Checker</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="variable">code</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span> &#123;</span><br><span class="line">        code += <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到这里主要是对code变量进行自加2，相当于如果我们点击的话要点击256次才能唤出flag，显然不可信。这里有两种解法，一种是hookcode这个变量，强行赋值为512；第二种是直接调用checker函数256次。</p>
+<p>第一种的hook脚本如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Java.perform(function() &#123;</span><br><span class="line">    <span class="type">var</span> <span class="variable">a</span> <span class="operator">=</span> Java.use(<span class="string">&quot;com.ad2001.frida0x3.Checker&quot;</span>);</span><br><span class="line">    a.code.value=<span class="number">512</span>;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这里有对比0x2有一个小细节，以防忘记我把脚本再拉出来一次，以下是0x2的hook脚本</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Java.perform(function() &#123;</span><br><span class="line">    <span class="type">var</span> <span class="variable">a</span> <span class="operator">=</span> Java.use(<span class="string">&quot;com.ad2001.frida0x2.MainActivity&quot;</span>);</span><br><span class="line">    a.get_flag(<span class="number">4919</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这里的细节在于赋值，0x3的赋值是直接利用等于号，而0x2是括号括起来的，为什么呢？</p>
+<p>看0x3中的checker逻辑，对code的定义是int code，那么这就是一个变量，我们对变量赋值自然只能用=；但是在0x2中也有用int来定义值(以防忘了截取部分如下)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">get_flag</span><span class="params">(<span class="type">int</span> a)</span> <span class="keyword">throws</span> BadPaddingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException &#123;</span><br><span class="line">    <span class="keyword">if</span> (a == <span class="number">4919</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">SecretKeySpec</span> <span class="variable">secretKeySpec</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SecretKeySpec</span>(<span class="string">&quot;HILLBILLWILLBINN&quot;</span>.getBytes(), <span class="string">&quot;AES&quot;</span>);</span><br><span class="line">            <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(<span class="string">&quot;AES/CBC/PKCS5Padding&quot;</span>);</span><br><span class="line">            <span class="type">IvParameterSpec</span> <span class="variable">iv</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IvParameterSpec</span>(<span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">16</span>]);</span><br><span class="line">            cipher.init(<span class="number">2</span>, secretKeySpec, iv);</span><br><span class="line">            <span class="type">byte</span>[] decryptedBytes = cipher.doFinal(Base64.decode(<span class="string">&quot;q7mBQegjhpfIAr0OgfLvH0t/D0Xi0ieG0vd+8ZVW+b4=&quot;</span>, <span class="number">0</span>));</span><br><span class="line">            <span class="type">String</span> <span class="variable">decryptedText</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(decryptedBytes);</span><br><span class="line">            t1.setText(decryptedText);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这里也是int a，但是区别在于get_flag函数包括了a，所以a是get_flag的一个参数，当我们强行赋值的时候相当于调用函数并为函数内的参数赋值为4919所以才需要括号包裹。</p>
+<p>解出flag如下</p>
+<p><img src="/blog_essay_picture/Week10/6.png" alt="" /></p>
+<p>第二种解法的hook脚本如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Java.perform(function() &#123;</span><br><span class="line">    <span class="type">var</span> <span class="variable">a</span> <span class="operator">=</span> Java.use(<span class="string">&quot;com.ad2001.frida0x3.Checker&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">256</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a.increase();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>就是直接调用increase函数256次，然后点一下按钮就能出flag了，不多赘述。</p>
+<h2 id="fridalab-0x4"><a class="markdownIt-Anchor" href="#fridalab-0x4"></a> FridaLab-0x4</h2>
+<p>学习了前面几道题这题就显得相对简单main逻辑没什么好看的，就是在打印，来看看check逻辑</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ad2001.frida0x4;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* loaded from: classes3.dex */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Check</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">get_flag</span><span class="params">(<span class="type">int</span> a)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (a == <span class="number">1337</span>) &#123;</span><br><span class="line">            <span class="type">byte</span>[] decoded = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="string">&quot;I]FKNtW@]JKPFA\\[NALJr&quot;</span>.getBytes().length];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="string">&quot;I]FKNtW@]JKPFA\\[NALJr&quot;</span>.getBytes().length; i++) &#123;</span><br><span class="line">                decoded[i] = (<span class="type">byte</span>) (<span class="string">&quot;I]FKNtW@]JKPFA\\[NALJr&quot;</span>.getBytes()[i] ^ <span class="number">15</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">String</span>(decoded);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然静态也能做但还是要学学fridahook。可以看到这里就是要去hook一个函数的参数让系统进行异或自解密，但是值得注意的是这里的定义是public String get_flag(int a)，而不是public static get_flag(int a)，所以我们hook的时候要创造一个实例，那么hook脚本如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Java.perform(function() &#123;</span><br><span class="line">    <span class="type">var</span> <span class="variable">a</span> <span class="operator">=</span> Java.use(<span class="string">&quot;com.ad2001.frida0x4.Check&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> obj=a.$<span class="keyword">new</span>();</span><br><span class="line">    obj.get_flag(<span class="number">1337</span>);</span><br><span class="line">    console.log(<span class="string">&quot;Hacked&quot;</span>);</span><br><span class="line">    console.log(obj.get_flag(<span class="number">1337</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>运行之后可以在shell中看到flag的输出<br />
+<img src="/blog_essay_picture/Week10/7.png" alt="" /></p>
+<h2 id="fridalab-0x5"><a class="markdownIt-Anchor" href="#fridalab-0x5"></a> FridaLab-0x5</h2>
+<p>相比前面几道题这道题考法更新颖，考察了直接在mainactivity中更改appUI让flag显示在屏幕上</p>
+<p>main逻辑如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">AppCompatActivity</span> &#123;</span><br><span class="line">    TextView t1;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span> <span class="comment">// androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        <span class="built_in">this</span>.t1 = (TextView) findViewById(R.id.textview);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">flag</span><span class="params">(<span class="type">int</span> code)</span> <span class="keyword">throws</span> BadPaddingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeyException, InvalidAlgorithmParameterException &#123;</span><br><span class="line">        <span class="keyword">if</span> (code == <span class="number">1337</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="type">SecretKeySpec</span> <span class="variable">secretKeySpec</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SecretKeySpec</span>(<span class="string">&quot;WILLIWOMNKESAWEL&quot;</span>.getBytes(), <span class="string">&quot;AES&quot;</span>);</span><br><span class="line">                <span class="type">Cipher</span> <span class="variable">cipher</span> <span class="operator">=</span> Cipher.getInstance(<span class="string">&quot;AES/CBC/PKCS5Padding&quot;</span>);</span><br><span class="line">                <span class="type">IvParameterSpec</span> <span class="variable">iv</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IvParameterSpec</span>(<span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">16</span>]);</span><br><span class="line">                cipher.init(<span class="number">2</span>, secretKeySpec, iv);</span><br><span class="line">                <span class="type">byte</span>[] decodedEnc = Base64.getDecoder().decode(<span class="string">&quot;2Y2YINP9PtJCS/7oq189VzFynmpG8swQDmH4IC9wKAY=&quot;</span>);</span><br><span class="line">                <span class="type">byte</span>[] decryptedBytes = cipher.doFinal(decodedEnc);</span><br><span class="line">                <span class="type">String</span> <span class="variable">decryptedText</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(decryptedBytes);</span><br><span class="line">                <span class="built_in">this</span>.t1.setText(decryptedText);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到这里也是非static的函数赋值hook，按照之前的思路去hook发现frida报错无法正常hook，查询solution后得知由于我们是在mainactivity中进行hook，所以我们不能像之前一样创造一个示例然后去修改实例，所以我们利用以下代码进行mainactivity的hook</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Java.perform(function () &#123;</span><br><span class="line">    <span class="type">var</span> <span class="variable">MainActivity</span> <span class="operator">=</span> Java.use(<span class="string">&quot;com.ad2001.frida0x5.MainActivity&quot;</span>);</span><br><span class="line">    Java.choose(<span class="string">&quot;com.ad2001.frida0x5.MainActivity&quot;</span>, &#123;</span><br><span class="line">        onMatch: function(a) &#123;</span><br><span class="line">            a.flag(<span class="number">1337</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        onComplete: function() &#123;</span><br><span class="line">            console.log(<span class="string">&quot;Hacked&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>逐一解释：</p>
+<p>由于mainactivity有自己的生命周期，所以我们没办法进行new的操作，否则就只是new了一个空壳没有任何意义，所以我们直接利用Java.choose来扫描目标进程中的实例，当我们找到目标实例时就启动onMatch内的代码将目标进程中的代码替换成我们的代码，由于main逻辑中已经有setText了，所以我们不需要再console.log来输出。</p>
+<p>其中Java.choose的工作逻辑就是遍历JVM堆找到所有mainactiviy的类，每找到一个就调用一次onMatch逻辑替换成其内的逻辑。onComplete就是当choose全部完成之后才会调用的，显示已完成的一个函数，完全可以省略。</p>
+<p>hook后appUI回显如下</p>
+<p><img src="/blog_essay_picture/Week10/8.png" alt="" /></p>
+
+    </div>
+    <footer class="article-footer">
+        <a class="article-category-link" href="/categories/Weekly/" title="Weekly" data-aos="zoom-in">Weekly</a>
+
+      
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    <div class="article-nav-link-wrap right">
+        <img data-src="https://s41.ax1x.com/2026/05/21/pmSnDi9.jpg" data-sizes="auto" alt="安卓逆向初入门" class="lazyload">
+      <a href="/2026/05/20/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%88%9D%E5%85%A5%E9%97%A8/" aria-label="后一篇: 安卓逆向初入门"  title="后一篇: 安卓逆向初入门"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+          安卓逆向初入门
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2025-2026
+        <span class="footer-info-sep rotate"></span>
+      LUNCHAH
+    </div>
+      <div>
+        基于&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        40.8k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        03:41
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#fridalab-0x1"><span class="toc-number">1.</span> <span class="toc-text"> FridaLab-0x1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fridalab-0x2"><span class="toc-number">2.</span> <span class="toc-text"> FridaLab-0x2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fridalab-0x3"><span class="toc-number">3.</span> <span class="toc-text"> FridaLab-0x3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fridalab-0x4"><span class="toc-number">4.</span> <span class="toc-text"> FridaLab-0x4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fridalab-0x5"><span class="toc-number">5.</span> <span class="toc-text"> FridaLab-0x5</span></a></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/head.jpg" data-sizes="auto" alt="LUNCHAH" class="lazyload">
+  <div class="sidebar-author-name">LUNCHAH</div>
+  <div class="sidebar-description">逆向小手子</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">9</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:2135537336@qq.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/LUNCHAH itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-bilibili sidebar-social-icon">
+      <a href=https://space.bilibili.com/485931453?spm_id_from=333.1007.0.0 itemprop="url" target="_blank" aria-label="bilibili" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-steam sidebar-social-icon">
+      <a href=https://steamcommunity.com/profiles/76561199010313755/ itemprop="url" target="_blank" aria-label="steam" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "LUNCHAH",
+          title: "Week10",
+          url: "http://example.com/2026/05/21/Week10/",
+          excerpt: "",
+          description: "",
+          stripContent: " FridaLab-0x1 首先jadx，发现代码被严重混淆了，查阅博客后发现可以按照下图的方式进行排除  勾选后混乱代码的可读性大大增强。 然后就有两个逆向点(后面看了官方solution后发现有三个)，一个是静态逆向 123456789101112131415161718192021void check(int i, int i2) &amp;#123;       if ((i * 2) + 4 == i2) &amp;#123;           Toast.makeText(getApplicati",
+          date: "Thu May 21 2026 00:00:00 GMT+0800",
+          updated: "Fri May 22 2026 11:01:09 GMT+0800",
+          cover: "https://s41.ax1x.com/2026/05/22/pmSzy6A.jpg",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>
