@@ -7,8 +7,7 @@ cover: https://s41.ax1x.com/2026/05/22/pmSzy6A.jpg
 ## FridaLab-0x1
 首先jadx，发现代码被严重混淆了，查阅博客后发现可以按照下图的方式进行排除
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1778065978451-dbb78180-33d6-4c16-8236-ac038132ee3d.png)
+![](/blog_essay_picture/Week10/1.png)
 
 勾选后混乱代码的可读性大大增强。
 
@@ -38,8 +37,8 @@ cover: https://s41.ax1x.com/2026/05/22/pmSzy6A.jpg
 
 ```
 
-由于这里给了目标字符串和逻辑，我们直接抄就能抄过来，不过其实这就是个位移密码(凯撒)，左移21位，可以在线工具一把梭<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1778071532057-0ce558f7-7171-43d3-bae9-5231a9062fa8.png)
+由于这里给了目标字符串和逻辑，我们直接抄就能抄过来，不过其实这就是个位移密码(凯撒)，左移21位，可以在线工具一把梭
+![](/blog_essay_picture/Week10/2.png)
 
 但是这样就少了很多趣味，并且学不到什么frida的知识，所以我们重点看fridahook
 
@@ -74,8 +73,7 @@ frida -U -n "Frida 0x1" -l "hook.js"
 
 由于我们是attach上的，所以我们需要让程序刷新一次，经搜索得知，当我们旋转虚拟机的屏幕后，虚拟机会销毁当前activity并重启，这样我们就能强行attach上了。又由源码中的计算公式得知，当我们return 5时，我们需要输入14，输入后得到flag
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1778116533495-39af6c7f-fd20-4a8a-af31-65e22d9477ed.png)
+![](/blog_essay_picture/Week10/3.png)
 
 ## FridaLab-0x2
 逻辑清晰的题，主逻辑如下
@@ -109,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-可以看到当a=4919时app就会实现自解密。运行app回显如下<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779028627708-e3ffc898-1072-4b27-a19e-bfea83774c81.png)
+可以看到当a=4919时app就会实现自解密。运行app回显如下
+![](/blog_essay_picture/Week10/4.png)
 
 可以看到app并没有给出一个可以输入的地方，那么我们就只能通过frida强制赋值然后让程序输出flag。hook脚本如下
 
@@ -124,8 +122,7 @@ Java.perform(function() {
 
 输入后可以看到app回显如下
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779028808188-edf0ca48-0eb9-4eb6-b1d3-c014e2011412.png)
+![](/blog_essay_picture/Week10/5.png)
 
 便可以得到flag了
 
@@ -238,8 +235,7 @@ Java.perform(function() {
 
 解出flag如下
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779107947003-14b5a5d0-3992-4c55-a7b0-1e6ce0c0a488.png)
+![](/blog_essay_picture/Week10/6.png)
 
 第二种解法的hook脚本如下
 
@@ -276,7 +272,7 @@ public class Check {
 }
 ```
 
-虽然静态也能做但还是要学学fridahook。可以看到这里就是要去hook一个函数的参数让系统进行异或自解密，但是值得注意的是这里的定义是public String get_flag(int a)，而不是public static get_flag(int a)，所以我们hook的时候要创造一个示例，那么hook脚本如下
+虽然静态也能做但还是要学学fridahook。可以看到这里就是要去hook一个函数的参数让系统进行异或自解密，但是值得注意的是这里的定义是public String get_flag(int a)，而不是public static get_flag(int a)，所以我们hook的时候要创造一个实例，那么hook脚本如下
 
 ```java
 Java.perform(function() {
@@ -288,8 +284,8 @@ Java.perform(function() {
 });
 ```
 
-运行之后可以在shell中看到flag的输出<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779111475002-1167d63b-3fa1-4c4b-848c-8cf279447263.png)
+运行之后可以在shell中看到flag的输出
+![](/blog_essay_picture/Week10/7.png)
 
 ## FridaLab-0x5
 相比前面几道题这道题考法更新颖，考察了直接在mainactivity中更改appUI让flag显示在屏幕上
@@ -350,6 +346,5 @@ Java.perform(function () {
 
 hook后appUI回显如下
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779269070458-853bae16-2525-4ace-9726-62b06efb2fa1.png)
+![](/blog_essay_picture/Week10/8.png)
 
