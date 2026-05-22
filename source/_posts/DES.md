@@ -1,7 +1,7 @@
 title: DES
 date: 2026-01-28
 category: LEARN
-cover: https://s41.ax1x.com/2026/02/16/pZLboSf.jpg
+cover: https://s41.ax1x.com/2026/05/22/pmp94fO.jpg
 ---
 
 ## 前言
