@@ -1,7 +1,7 @@
 title: AES
 date: 2026-02-26
 category: LEARN
-cover: source/passagecover/4.jpg
+cover: /source/passagecover/4.jpg
 ---
 
 ## 前言
