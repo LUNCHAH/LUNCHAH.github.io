@@ -1,7 +1,7 @@
 title: Week10
 date: 2026-5-21
 category: Weekly
-cover: source/passagecover/11.jpg
+cover: /source/passagecover/11.jpg
 ---
 
 ## FridaLab-0x1
