@@ -1,6 +1,6 @@
 title: furryCTF
 date: 2026-01-30
-cover: source/passagecover/0.jpg
+cover: /source/passagecover/0.jpg
 category: GAME
 ---
 
