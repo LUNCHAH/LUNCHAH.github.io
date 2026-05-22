@@ -1,7 +1,7 @@
 title: SHCTF-re 阶段一
 date: 2026-2-7 
 category: GAME
-cover: https://s41.ax1x.com/2026/05/22/pmp9201.jpg
+cover: source/passagecover/12.jpg
 ---
 
 ## SHCTF-a_cup_of_tea
