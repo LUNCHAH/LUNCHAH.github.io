@@ -1,7 +1,7 @@
 title: DES
 date: 2026-01-28
 category: LEARN
-cover: source/passagecover/9.jpg
+cover: /source/passagecover/9.jpg
 ---
 
 ## 前言
