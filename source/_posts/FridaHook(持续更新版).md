@@ -98,8 +98,7 @@ adb shell
 
 当使用adb shell命令后我们进入安卓的内部系统中，如下图所示
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779450002408-c7f4a3c2-74b9-4079-aec9-4e039101c81a.png)
+![](/blog_essay_picture/FridaHookpicture.png)
 
 当你输入su之后也能获取设备的最高权限，其作用与adb root等价。
 
