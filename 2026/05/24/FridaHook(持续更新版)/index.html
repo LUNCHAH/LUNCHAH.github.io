@@ -9,7 +9,7 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
   <title>
-    关于 | LUNCHAH&#39;s Blog
+    FridaHook(持续更新版) | LUNCHAH&#39;s Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
@@ -17,19 +17,19 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="关于 GWHT的逆向小登一枚 获2026软件安全大赛华南赛区二等奖 Loading…">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://example.com/about/index.html">
+    <meta name="description" content="前言 在使用frida时，我们常使用一些命令行来hook上虚拟机或真机，同时在我们写hook脚本时，我们也会常用到一些frida的API来为我们服务，这篇文章的主要目的就是来详细讲讲fridahook中的一些注意事项，命令和脚本书写，脚本API等。由于作者本人也在逐渐学习，目前也处于处于入门阶段，所以本篇文章会逐渐更新完善和更改修正，在完结之前请批判性阅读。  工具类 一般来说我们在做安卓题时需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FridaHook(持续更新版)">
+<meta property="og:url" content="http://example.com/2026/05/24/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/index.html">
 <meta property="og:site_name" content="LUNCHAH&#39;s Blog">
-<meta property="og:description" content="关于 GWHT的逆向小登一枚 获2026软件安全大赛华南赛区二等奖 Loading…">
+<meta property="og:description" content="前言 在使用frida时，我们常使用一些命令行来hook上虚拟机或真机，同时在我们写hook脚本时，我们也会常用到一些frida的API来为我们服务，这篇文章的主要目的就是来详细讲讲fridahook中的一些注意事项，命令和脚本书写，脚本API等。由于作者本人也在逐渐学习，目前也处于处于入门阶段，所以本篇文章会逐渐更新完善和更改修正，在完结之前请批判性阅读。  工具类 一般来说我们在做安卓题时需">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/banner.webp">
-<meta property="article:published_time" content="2026-02-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-22T03:17:06.613Z">
+<meta property="og:image" content="http://example.com/blog_essay_picture/FridaHookpicture.png">
+<meta property="article:published_time" content="2026-05-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T05:37:33.651Z">
 <meta property="article:author" content="LUNCHAH">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/banner.webp">
+<meta name="twitter:image" content="http://example.com/blog_essay_picture/FridaHookpicture.png">
     <link rel="alternate" href="/atom.xml" title="LUNCHAH's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -127,13 +127,12 @@
   </nav>
 </div>
 <header id="header" aria-label="Site header">
-      <picture>
-      </picture>
-        <img  fetchpriority="high" src="/images/banner.webp" alt="关于">
+    <picture></picture>
+    <img  fetchpriority="high" src="/passagecover/8.jpg" alt="FridaHook(持续更新版)">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">关于</h1>
+            <h1 data-aos="slide-up">FridaHook(持续更新版)</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -143,10 +142,15 @@
 
         <div id="content" aria-label="Page content"  class="sidebar-right" >
           <aside id="sidebar" aria-label="Sidebar">
-  <div class="sidebar-wrapper-container ">
+  <div class="sidebar-wrapper-container sticky">
   <div class="sidebar-wrapper">
     <div class="sidebar-wrap" data-aos="fade-up">
-        <div class="sidebar-author">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text"> 工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text"> 脚本类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text"> 命令类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#adb%E5%91%BD%E4%BB%A4"><span class="toc-number">4.1.</span> <span class="toc-text"> adb命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frida%E5%91%BD%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text"> frida命令</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/head.jpg" data-sizes="auto" alt="LUNCHAH" class="lazyload">
   <div class="sidebar-author-name">LUNCHAH</div>
   <div class="sidebar-description">逆向小手子</div>
@@ -209,64 +213,25 @@
         <div class="sidebar-menu-link">友链</div>
       </div>
 </div>
-
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
     </div>
   </div>
   <div class="sidebar-widget">
-        <div class="widget-wrapper">
-    <div class="widget-wrap" data-aos="fade-up">
-      <h3 class="widget-title">分类</h3>
-      <div class="widget">
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GAME/" title="GAME">GAME</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LEARN/" title="LEARN">LEARN</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Weekly/" title="Weekly">Weekly</a></li></ul>
-      </div>
-    </div>
-  </div>
-
-        <div class="widget-wrapper">
-    <div class="widget-wrap" data-aos="fade-up">
-      <h3 class="widget-title">归档</h3>
-      <div class="widget">
-        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">五月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li></ul>
-      </div>
-    </div>
-  </div>
-
-        <div class="widget-wrapper">
-    <div class="widget-wrap" data-aos="fade-up">
-      <h3 class="widget-title">最新文章</h3>
-      <div class="widget">
-        <ul>
-            <li>
-              <a href="/2026/05/24/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/" title="FridaHook(持续更新版)">FridaHook(持续更新版)</a>
-            </li>
-            <li>
-              <a href="/2026/05/21/Week10/" title="Week10">Week10</a>
-            </li>
-            <li>
-              <a href="/2026/05/20/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%88%9D%E5%85%A5%E9%97%A8/" title="安卓逆向初入门">安卓逆向初入门</a>
-            </li>
-            <li>
-              <a href="/2026/04/02/5/" title="Week5">Week5</a>
-            </li>
-            <li>
-              <a href="/2026/03/08/1/" title="Week1">Week1</a>
-            </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
   </div>
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="page-" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-FridaHook(持续更新版)" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link icon-calendar" data-aos="zoom-in">
-    <time datetime="2026-02-15T16:00:00.000Z" itemprop="datePublished">2026-02-16</time>
-    <time style="display: none;" id="post-update-time">2026-05-22</time>
+    <time datetime="2026-05-23T16:00:00.000Z" itemprop="datePublished">2026-05-24</time>
+    <time style="display: none;" id="post-update-time">2026-05-24</time>
   </span>
 </div>
 
@@ -275,18 +240,73 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h2 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h2>
-<p>GWHT的逆向小登一枚<br />
-获2026软件安全大赛华南赛区二等奖<br />
-Loading…</p>
+        <h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>在使用frida时，我们常使用一些命令行来hook上虚拟机或真机，同时在我们写hook脚本时，我们也会常用到一些frida的API来为我们服务，这篇文章的主要目的就是来详细讲讲fridahook中的一些注意事项，命令和脚本书写，脚本API等。<font style="color:#DF2A3F;">由于作者本人也在逐渐学习，目前也处于处于入门阶段，所以本篇文章会逐渐更新完善和更改修正，在完结之前请批判性阅读。</font></p>
+<h2 id="工具类"><a class="markdownIt-Anchor" href="#工具类"></a> 工具类</h2>
+<p>一般来说我们在做安卓题时需要用到虚拟机，而我个人推荐studio64，当然用uu模拟器也行，看个人习惯。但我还是想说安卓studio用习惯其实感觉还不错，很纯净很方便，跟真机更加接近，方便后面逐渐接触真机的学习。</p>
+<p>安卓studio的官方下载网址为：<a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio?hl=zh-cn">https://developer.android.google.cn/studio?hl=zh-cn</a></p>
+<h2 id="脚本类"><a class="markdownIt-Anchor" href="#脚本类"></a> 脚本类</h2>
+<p>安卓逆向中我们常撰写JS脚本来hookapp，而其中的接口和API则是需要用frida所提供的，倘若脚本不符合frida所提供的API或有本质上的JS语法错误frida会直接报错，下面讲讲常见的fridaAPI</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这个命令非常重要，这是fridahook脚本的必要开头，主要作用在于当与JVM连接成功后才会启动内部代码，否则将不会执行其内部代码，。基本上写fridahook脚本记死这个开头就行。但值得注意的是在hooknative层时是不需要用这个开头的，毕竟native层不依赖JVM。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Java</span>.<span class="title function_">use</span>(...)</span><br></pre></td></tr></table></figure>
+<p>这个的主要作用就是调用我们所需要的特定的类，但值得注意的是，当我们都调用某一个特定的函数时要注意是否为public static，倘若不是那么我们就要创造一个实例即a.$new()才能正常hook</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">。。。.。。。.<span class="property">implementation</span>=<span class="keyword">function</span>(<span class="params">...</span>)&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个语句的主要作用在于当我们需要将某一函数内部逻辑替换掉或强行返回某一特定的值(诸如此类的功能)时我们可以使用这个API，那么当我们hook上app后进程中的这个函数就会被API内的逻辑所替换。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>()</span><br></pre></td></tr></table></figure>
+<p>输出逻辑</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Java</span>.<span class="title function_">choose</span>(<span class="string">&quot;xxx&quot;</span>, &#123;</span><br><span class="line">        <span class="attr">onMatch</span>: <span class="keyword">function</span>(<span class="params">instance</span>) &#123;</span><br><span class="line">            instance.<span class="title function_">get_flag</span>(<span class="number">1337</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">onComplete</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;done&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当我们遇到一些对象无法正常hook时，比如mainactivity中的对象，我们就要使用这套API。它会进入内存中搜索choose后的进程名称或具体函数，一旦有符合的就进入onmatch中，执行onmatch中的逻辑，搜索过程中每有一次符合就会调用一次onmatch，当所有都完成后就会调用oncomplete，终止搜索和执行。</p>
+<h2 id="命令类"><a class="markdownIt-Anchor" href="#命令类"></a> 命令类</h2>
+<p>命令类有两种类别，一种是adb命令，一种是frida命令。</p>
+<h3 id="adb命令"><a class="markdownIt-Anchor" href="#adb命令"></a> adb命令</h3>
+<p>adb命令更像是上帝视角，使用adb时我们更多的是在以外部向内看，主要是用来获取权限，查看日志，安装，删除之类的事，更多的是对系统的管理和处理。</p>
+<p>常见的adb命令如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
+<p>这个命令的作用在于查看已上线并且能够连接的设备数量及名称。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb root</span><br></pre></td></tr></table></figure>
+<p>这个命令的作用在于直接获取目标设备的最高权限。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell ps</span><br></pre></td></tr></table></figure>
+<p>作用在于查找已连接设备上所有进程的PID</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb push [推送文件] [目标地址]</span><br></pre></td></tr></table></figure>
+<p>这个命令用于将一些在Windows上的文件推送到安卓的系统中，一般来说我们直接推送进去的文件会被存放在/data/local/tmp/中。我们一般用这个命令将frida-server推送到安卓设备中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
+<p>这个命令的作用在于进入安卓的Linux shell，用来获取一些程序的运行权限，管理设备权限以及cd到各个文件夹管理文件。</p>
+<p>当使用adb shell命令后我们进入安卓的内部系统中，如下图所示</p>
+<p><img src="/blog_essay_picture/FridaHookpicture.png" alt="" /></p>
+<p>当你输入su之后也能获取设备的最高权限，其作用与adb root等价。</p>
+<p>进入shell后直接cd /data/local/tmp/然后ls查看fridaserver是否推送成功，然后执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 xxx</span><br></pre></td></tr></table></figure>
+<p>为fridaserver赋权，然后./fridaserver即可。</p>
+<h3 id="frida命令"><a class="markdownIt-Anchor" href="#frida命令"></a> frida命令</h3>
+<p>frida的命令结构一般为</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida [操作] [目标]</span><br></pre></td></tr></table></figure>
+<p>像我们常见的frida -U -f xxx -l xxx.js就是这种格式。frida还有很多其他的操作系数，下面来详细讲讲</p>
+<p>-U：连接USB设备，包括但不限于真机和模拟器</p>
+<p>-f：启动某个具体的app进程并注入</p>
+<p>-l：load</p>
+<p>–no-pause：较新版本的frida基本不需要这个命令了，其作用是是注入后继续运行，防止进程注入后停止</p>
+<p>-n：也就是attach，即附加到正在运行的进程中</p>
+<p>-p：与上面-f不同，-f后加具体的app名称，-p后加的是某一进程的PID</p>
 
     </div>
     <footer class="article-footer">
-      
+        <a class="article-category-link" href="/categories/LEARN/" title="LEARN" data-aos="zoom-in">LEARN</a>
+
       
     </footer>
   </div>
-  
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    <div class="article-nav-link-wrap right">
+        <img data-src="/passagecover/11.jpg" data-sizes="auto" alt="Week10" class="lazyload">
+      <a href="/2026/05/21/Week10/" aria-label="后一篇: Week10"  title="后一篇: Week10"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+          Week10
+      </h3>
+    </div>
+  </nav>
+
 </article>
 
 
@@ -332,7 +352,12 @@ Loading…</p>
       </div>
       <nav id="mobile-nav" aria-label="Mobile navigation">
   <div class="sidebar-wrap">
-      <div class="sidebar-author">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text"> 工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text"> 脚本类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text"> 命令类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#adb%E5%91%BD%E4%BB%A4"><span class="toc-number">4.1.</span> <span class="toc-text"> adb命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frida%E5%91%BD%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text"> frida命令</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/head.jpg" data-sizes="auto" alt="LUNCHAH" class="lazyload">
   <div class="sidebar-author-name">LUNCHAH</div>
   <div class="sidebar-description">逆向小手子</div>
@@ -395,8 +420,12 @@ Loading…</p>
         <div class="sidebar-menu-link">友链</div>
       </div>
 </div>
-
+</div>
   </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
 </nav>
 
     </div>
@@ -459,14 +488,14 @@ Loading…</p>
       <script data-pjax>
         window.REIMU_POST = {
           author: "LUNCHAH",
-          title: "关于",
-          url: "http://example.com/about/index.html",
+          title: "FridaHook(持续更新版)",
+          url: "http://example.com/2026/05/24/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/",
           excerpt: "",
           description: "",
-          stripContent: " 关于 GWHT的逆向小登一枚 获2026软件安全大赛华南赛区二等奖 Loading… ",
-          date: "Mon Feb 16 2026 00:00:00 GMT+0800",
-          updated: "Fri May 22 2026 11:17:06 GMT+0800",
-          cover: "/images/banner.webp",
+          stripContent: " 前言 在使用frida时，我们常使用一些命令行来hook上虚拟机或真机，同时在我们写hook脚本时，我们也会常用到一些frida的API来为我们服务，这篇文章的主要目的就是来详细讲讲fridahook中的一些注意事项，命令和脚本书写，脚本API等。由于作者本人也在逐渐学习，目前也处于处于入门阶段，所以本篇文章会逐渐更新完善和更改修正，在完结之前请批判性阅读。  工具类 一般来说我们在做安卓题时需要用到虚拟机，而我个人推荐studio64，当然用uu模拟器也行，看个人习惯。但我还是想说安卓stu",
+          date: "Sun May 24 2026 00:00:00 GMT+0800",
+          updated: "Sun May 24 2026 13:37:33 GMT+0800",
+          cover: "/passagecover/8.jpg",
         };
       </script>
         
