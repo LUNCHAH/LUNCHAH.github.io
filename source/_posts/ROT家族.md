@@ -1,3 +1,9 @@
+title: ROT家族
+date: 2026-1-20 
+category: LEARN
+cover: /passagecover/13.jpg
+---
+
 ROT函数，意味循环位移函数，用于将特定数据进行特定方向和位数的旋转位移
 
 核心性质有三：
