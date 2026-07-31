@@ -28,8 +28,7 @@ ROR(x, k) = (x >> k) | (x << (n - k))
 
 buu的IgniteMe中有一个函数就涉及这种函数
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1767965051260-1ffdb521-0bd2-4c75-b342-b704a19b08bf.png)
+![](/blog_essay_picture/ROT1.png)
 
 这里涉及两种操作，分别是ROL，循环左移四位和位移后的结果向右位移一位。
 
@@ -69,8 +68,7 @@ ROL4:  0x00700008 (0000 0000 0111 0000 0000 0000 0000 1000)
 
 题目逻辑如下
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1767967221833-9bb5dd52-f7a1-4932-9467-91174330945e.png)
+![](source/blog_essay_picture/ROT2.png)
 
 可以看到其中已经显示出了密文和加密逻辑
 
