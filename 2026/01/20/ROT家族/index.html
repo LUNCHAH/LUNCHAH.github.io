@@ -1,0 +1,568 @@
+  <!DOCTYPE html>
+  <html lang="zh-CN"  
+      data-theme-mode="auto"
+  >
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
+  <title>
+    ROT家族 | LUNCHAH&#39;s Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="ROT函数，意味循环位移函数，用于将特定数据进行特定方向和位数的旋转位移 核心性质有三： 1.循环性：数据进行循环位移后不会发生溢出，而是从数据的低位重新进入 2.可逆性：进行相反方向相同位数的操作可以得到原数据 3.保位性：数据的位数和性质不会发生改变 ROT函数分为ROR(右移)和ROL(左移)，在ROR和ROL后面接上的数字就是要位移的位数 核心公式有二 1ROL(x, k) &#x3D; (x &amp;l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROT家族">
+<meta property="og:url" content="http://example.com/2026/01/20/ROT%E5%AE%B6%E6%97%8F/index.html">
+<meta property="og:site_name" content="LUNCHAH&#39;s Blog">
+<meta property="og:description" content="ROT函数，意味循环位移函数，用于将特定数据进行特定方向和位数的旋转位移 核心性质有三： 1.循环性：数据进行循环位移后不会发生溢出，而是从数据的低位重新进入 2.可逆性：进行相反方向相同位数的操作可以得到原数据 3.保位性：数据的位数和性质不会发生改变 ROT函数分为ROR(右移)和ROL(左移)，在ROR和ROL后面接上的数字就是要位移的位数 核心公式有二 1ROL(x, k) &#x3D; (x &amp;l">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/blog_essay_picture/ROT1.png">
+<meta property="og:image" content="http://example.com/2026/01/20/ROT%E5%AE%B6%E6%97%8F/source/blog_essay_picture/ROT2.png">
+<meta property="article:published_time" content="2026-01-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-31T02:50:26.860Z">
+<meta property="article:author" content="LUNCHAH">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/blog_essay_picture/ROT1.png">
+    <link rel="alternate" href="/atom.xml" title="LUNCHAH's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">辛苦学re中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">首页</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">归档</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">关于</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/friend">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">友链</span>
+        </span>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+    <picture></picture>
+    <img  fetchpriority="high" src="/passagecover/13.jpg" alt="ROT家族">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">ROT家族</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/head.jpg" data-sizes="auto" alt="LUNCHAH" class="lazyload">
+  <div class="sidebar-author-name">LUNCHAH</div>
+  <div class="sidebar-description">逆向小手子</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">11</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:2135537336@qq.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/LUNCHAH itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-bilibili sidebar-social-icon">
+      <a href=https://space.bilibili.com/485931453?spm_id_from=333.1007.0.0 itemprop="url" target="_blank" aria-label="bilibili" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-steam sidebar-social-icon">
+      <a href=https://steamcommunity.com/profiles/76561199010313755/ itemprop="url" target="_blank" aria-label="steam" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-ROT家族" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-01-19T16:00:00.000Z" itemprop="datePublished">2026-01-20</time>
+    <time style="display: none;" id="post-update-time">2026-07-31</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <p>ROT函数，意味循环位移函数，用于将特定数据进行特定方向和位数的旋转位移</p>
+<p>核心性质有三：</p>
+<p>1.<font style="color:#DF2A3F;">循环性</font>：数据进行循环位移后不会发生溢出，而是从数据的低位重新进入</p>
+<p>2.<font style="color:#DF2A3F;">可逆性</font>：进行相反方向相同位数的操作可以得到原数据</p>
+<p>3.<font style="color:#DF2A3F;">保位性</font>：数据的位数和性质不会发生改变</p>
+<p>ROT函数分为ROR(右移)和ROL(左移)，在ROR和ROL后面接上的数字就是要位移的位数</p>
+<p><font style="color:#DF2A3F;">核心公式</font>有二</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ROL(x, k) = (x &lt;&lt; k) | (x &gt;&gt; (n - k))</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ROR(x, k) = (x &gt;&gt; k) | (x &lt;&lt; (n - k))</span><br></pre></td></tr></table></figure>
+<p>buu的IgniteMe中有一个函数就涉及这种函数</p>
+<p><img src="/blog_essay_picture/ROT1.png" alt="" /></p>
+<p>这里涉及两种操作，分别是ROL，循环左移四位和位移后的结果向右位移一位。</p>
+<p>这种ROT函数是在<font style="color:#DF2A3F;">二进制的基础</font>上进行处理(如下)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">原始: <span class="number">1000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0111</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span></span><br><span class="line">ROL4: <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0111</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">1000</span></span><br><span class="line">简化为<span class="number">32</span>位: <span class="number">0000</span> <span class="number">0000</span> <span class="number">0111</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">1000</span></span><br><span class="line">十六进制: <span class="number">0x00700008</span></span><br><span class="line">十进制: <span class="number">7340040</span></span><br></pre></td></tr></table></figure>
+<p>简洁明了地体现了ROT函数的三大性质和两大核心公式</p>
+<p>然后我们再向右位移一位</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">原始:  <span class="number">0x80070000</span> (<span class="number">1000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0111</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span>)</span><br><span class="line">ROL4:  <span class="number">0x00700008</span> (<span class="number">0000</span> <span class="number">0000</span> <span class="number">0111</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">1000</span>)</span><br><span class="line">&gt;&gt;<span class="number">1</span>:   <span class="number">0x00380004</span> (<span class="number">0000</span> <span class="number">0000</span> <span class="number">0011</span> <span class="number">1000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0100</span>)</span><br></pre></td></tr></table></figure>
+<p>由于这里返回的是16位数据，所以从低位到高位进行截取十六位可得</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0100</span></span><br></pre></td></tr></table></figure>
+<p>那么可得最终结果为4</p>
+<p>而ROT函数在调用的时候一般都是ROL/ROR(待处理数据 , 位移位数)，但大部分的题目都会标注出来。</p>
+<p>========================================================</p>
+<p>再来看看在web中的ROT的三目运算判断，取材于buu的login</p>
+<p>题目逻辑如下</p>
+<p><img src="source/blog_essay_picture/ROT2.png" alt="" /></p>
+<p>可以看到其中已经显示出了密文和加密逻辑</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(c &lt;= <span class="string">&quot;Z&quot;</span> ? <span class="number">90</span> : <span class="number">122</span>) &gt;= (c = c.charCodeAt(<span class="number">0</span>) + <span class="number">13</span>) ? c : c - <span class="number">26</span>);&#125;)</span><br></pre></td></tr></table></figure>
+<p>这里就是一个ROT13的字母表位移，倘若密文数据比Z小，就取90，否则取122，然后取密文的ASCII码+13，接着将90(或122)与后面的数据进行比较，如果符合条件那么密文数据不变，否则密文数据的ASCII-26得到新的数据，逆向脚本如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> enc[<span class="number">37</span>]=<span class="string">&quot;PyvragFvqrYbtvafNerRnfl@syner-ba.pbz&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">37</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">isupper</span>(enc[i]))</span><br><span class="line">        &#123;</span><br><span class="line">            enc[i]=((enc[i]+<span class="number">13</span>-<span class="string">&#x27;A&#x27;</span>)%<span class="number">26</span>)+<span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">islower</span>(enc[i]))</span><br><span class="line">        &#123;</span><br><span class="line">            enc[i]=((enc[i]+<span class="number">13</span>-<span class="string">&#x27;a&#x27;</span>)%<span class="number">26</span>)+<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            enc[i]=enc[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">37</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,enc[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的逆向是ROT家族里面<font style="color:#DF2A3F;">最特殊的</font>ROT13，我们来详细讲讲这个ROT13(因为其他的ROT都是可以直接计算的，唯独ROT13可以进行字母的计算——类似于凯撒)</p>
+<p>ROT13有两层含义，一是常规的ROT，即将数据在二进制的层面上进行计算；二是<font style="color:#DF2A3F;">在字母的层面上(非字母不处理)</font>进行计算，相当于凯撒密码那种偏移，这道login就很好地体现了——可以看到原JS代码中的-13(类似于凯撒密码的偏移量)</p>
+<p>ROT13的逆向逻辑很简单，就是将字母表分成两部分，每份十三个，然后按序号进行处理，最后加回来以保证最终结果的正确。类似于</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A B C D E F G H I J K L M </span><br><span class="line">N O P Q R S T U V W X Y Z</span><br><span class="line"></span><br><span class="line">A ↔ N</span><br><span class="line">B ↔ O</span><br><span class="line">C ↔ P</span><br><span class="line">...</span><br><span class="line">M ↔ Z</span><br></pre></td></tr></table></figure>
+<p>在我的逆向脚本中的-'A’和-'a’和%26就是为了将字母化为从0~13的序号，然后在序号的基础上进行处理，最后再加回来，即</p>
+<p><font style="color:#DF2A3F;">将字母空间数组化</font></p>
+<p>以达到简化索引和计算的目的</p>
+<p>ROT13还有很多变式，诸如ROT5，即只对数字进行处理；ROT18，即ROT13+ROT5；ROT47，即对所有可打印ASCII进行处理</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def <span class="title function_">rot5</span><span class="params">(text)</span>:</span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> <span class="type">char</span> in text:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;0&#x27;</span> &lt;= <span class="type">char</span> &lt;= <span class="string">&#x27;9&#x27;</span>:</span><br><span class="line">            result.append(chr((ord(<span class="type">char</span>) - ord(<span class="string">&#x27;0&#x27;</span>) + <span class="number">5</span>) % <span class="number">10</span> + ord(<span class="string">&#x27;0&#x27;</span>)))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result.append(<span class="type">char</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;.join(result)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 示例：12345 → 67890</span></span><br><span class="line"><span class="string"># 特点：数字0-9的ROT5也是自逆的</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def <span class="title function_">rot18</span><span class="params">(text)</span>:</span><br><span class="line">    # 字母ROT13 + 数字ROT5</span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> <span class="type">char</span> in text:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;A&#x27;</span> &lt;= <span class="type">char</span> &lt;= <span class="string">&#x27;Z&#x27;</span>:</span><br><span class="line">            result.append(chr((ord(<span class="type">char</span>) - ord(<span class="string">&#x27;A&#x27;</span>) + <span class="number">13</span>) % <span class="number">26</span> + ord(<span class="string">&#x27;A&#x27;</span>)))</span><br><span class="line">        elif <span class="string">&#x27;a&#x27;</span> &lt;= <span class="type">char</span> &lt;= <span class="string">&#x27;z&#x27;</span>:</span><br><span class="line">            result.append(chr((ord(<span class="type">char</span>) - ord(<span class="string">&#x27;a&#x27;</span>) + <span class="number">13</span>) % <span class="number">26</span> + ord(<span class="string">&#x27;a&#x27;</span>)))</span><br><span class="line">        elif <span class="string">&#x27;0&#x27;</span> &lt;= <span class="type">char</span> &lt;= <span class="string">&#x27;9&#x27;</span>:</span><br><span class="line">            result.append(chr((ord(<span class="type">char</span>) - ord(<span class="string">&#x27;0&#x27;</span>) + <span class="number">5</span>) % <span class="number">10</span> + ord(<span class="string">&#x27;0&#x27;</span>)))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result.append(<span class="type">char</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;.join(result)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 示例：Hello123 → Uryyb678</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def <span class="title function_">rot47</span><span class="params">(text)</span>:</span><br><span class="line">    # ASCII 33-126 <span class="params">(<span class="number">94</span>个可打印字符)</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> <span class="type">char</span> in text:</span><br><span class="line">        <span class="keyword">if</span> <span class="number">33</span> &lt;= ord(<span class="type">char</span>) &lt;= <span class="number">126</span>:</span><br><span class="line">            # <span class="number">47</span>是<span class="number">94</span>的一半，所以也是自逆的</span><br><span class="line">            result.append(chr(<span class="number">33</span> + (ord(<span class="type">char</span>) - <span class="number">33</span> + <span class="number">47</span>) % <span class="number">94</span>))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result.append(<span class="type">char</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;.join(result)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 示例：Hello! → w6==@</span></span><br><span class="line"><span class="string"># 特点：可以加密符号、数字、大小写字母</span></span><br></pre></td></tr></table></figure>
+<p>至于其他更复杂的变式基本都是嵌套异或，base64等逻辑，掌握以上基本ROT是可以很快破解的。</p>
+<p><font style="color:#DF2A3F;">tips：值得注意的是ROT算法中其内部的某一元素是能提出来计算的，跟普通的算法逻辑逆向时一个方法，例如a=ROR(b , c)，则有b=ROL(a , c)</font></p>
+
+    </div>
+    <footer class="article-footer">
+        <a class="article-category-link" href="/categories/LEARN/" title="LEARN" data-aos="zoom-in">LEARN</a>
+
+      
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+          <img data-src="/passagecover/9.jpg" data-sizes="auto" alt="DES" class="lazyload">
+        <a href="/2026/01/28/DES/" aria-label="前一篇: DES" title="前一篇: DES"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">
+            DES
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+        <img data-src="/passagecover/5.jpg" data-sizes="auto" alt="二叉树" class="lazyload">
+      <a href="/2026/01/19/%E4%BA%8C%E5%8F%89%E6%A0%91/" aria-label="后一篇: 二叉树"  title="后一篇: 二叉树"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+          二叉树
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2025-2026
+        <span class="footer-info-sep rotate"></span>
+      LUNCHAH
+    </div>
+      <div>
+        基于&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        43.4k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        03:52
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/head.jpg" data-sizes="auto" alt="LUNCHAH" class="lazyload">
+  <div class="sidebar-author-name">LUNCHAH</div>
+  <div class="sidebar-description">逆向小手子</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">11</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">3</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:2135537336@qq.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/LUNCHAH itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-bilibili sidebar-social-icon">
+      <a href=https://space.bilibili.com/485931453?spm_id_from=333.1007.0.0 itemprop="url" target="_blank" aria-label="bilibili" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-steam sidebar-social-icon">
+      <a href=https://steamcommunity.com/profiles/76561199010313755/ itemprop="url" target="_blank" aria-label="steam" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "LUNCHAH",
+          title: "ROT家族",
+          url: "http://example.com/2026/01/20/ROT%E5%AE%B6%E6%97%8F/",
+          excerpt: "",
+          description: "",
+          stripContent: "ROT函数，意味循环位移函数，用于将特定数据进行特定方向和位数的旋转位移 核心性质有三： 1.循环性：数据进行循环位移后不会发生溢出，而是从数据的低位重新进入 2.可逆性：进行相反方向相同位数的操作可以得到原数据 3.保位性：数据的位数和性质不会发生改变 ROT函数分为ROR(右移)和ROL(左移)，在ROR和ROL后面接上的数字就是要位移的位数 核心公式有二 1ROL(x, k) = (x &amp;lt;&amp;lt; k) | (x &amp;gt;&amp;gt; (n - k)) 1ROR(x, k) = (x &amp;",
+          date: "Tue Jan 20 2026 00:00:00 GMT+0800",
+          updated: "Fri Jul 31 2026 10:50:26 GMT+0800",
+          cover: "/passagecover/13.jpg",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.0' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-05-24T05:37:33.651Z</updated>
+  <updated>2026-05-24T05:37:33.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2026/05/24/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/"/>
     <id>http://example.com/2026/05/24/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/</id>
     <published>2026-05-23T16:00:00.000Z</published>
-    <updated>2026-05-24T05:37:33.651Z</updated>
+    <updated>2026-05-24T05:37:33.000Z</updated>
     
     
       
@@ -44,7 +44,7 @@
     <link href="http://example.com/2026/05/21/Week10/"/>
     <id>http://example.com/2026/05/21/Week10/</id>
     <published>2026-05-20T16:00:00.000Z</published>
-    <updated>2026-05-22T07:46:30.317Z</updated>
+    <updated>2026-05-22T07:46:30.000Z</updated>
     
     
       
@@ -67,7 +67,7 @@
     <link href="http://example.com/2026/05/20/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%88%9D%E5%85%A5%E9%97%A8/"/>
     <id>http://example.com/2026/05/20/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%88%9D%E5%85%A5%E9%97%A8/</id>
     <published>2026-05-19T16:00:00.000Z</published>
-    <updated>2026-05-22T07:46:30.325Z</updated>
+    <updated>2026-05-22T07:46:30.000Z</updated>
     
     
       
@@ -92,7 +92,7 @@
     <link href="http://example.com/2026/04/02/5/"/>
     <id>http://example.com/2026/04/02/5/</id>
     <published>2026-04-01T16:00:00.000Z</published>
-    <updated>2026-05-22T07:46:30.311Z</updated>
+    <updated>2026-05-22T07:46:30.000Z</updated>
     
     
       
@@ -117,7 +117,7 @@
     <link href="http://example.com/2026/03/08/1/"/>
     <id>http://example.com/2026/03/08/1/</id>
     <published>2026-03-07T16:00:00.000Z</published>
-    <updated>2026-05-24T14:31:28.021Z</updated>
+    <updated>2026-05-24T14:31:28.000Z</updated>
     
     
       
@@ -140,7 +140,7 @@
     <link href="http://example.com/2026/02/26/AES/"/>
     <id>http://example.com/2026/02/26/AES/</id>
     <published>2026-02-25T16:00:00.000Z</published>
-    <updated>2026-05-22T07:46:30.315Z</updated>
+    <updated>2026-05-22T07:46:30.000Z</updated>
     
     
       
@@ -163,7 +163,7 @@
     <link href="http://example.com/2026/02/07/SHCTF-re%20%E9%98%B6%E6%AE%B5%E4%B8%80/"/>
     <id>http://example.com/2026/02/07/SHCTF-re%20%E9%98%B6%E6%AE%B5%E4%B8%80/</id>
     <published>2026-02-06T16:00:00.000Z</published>
-    <updated>2026-05-22T07:56:32.378Z</updated>
+    <updated>2026-05-22T07:56:32.000Z</updated>
     
     
       
@@ -186,7 +186,7 @@
     <link href="http://example.com/2026/01/30/furryCTF/"/>
     <id>http://example.com/2026/01/30/furryCTF/</id>
     <published>2026-01-29T16:00:00.000Z</published>
-    <updated>2026-05-22T07:46:30.322Z</updated>
+    <updated>2026-05-22T07:46:30.000Z</updated>
     
     
       
@@ -211,7 +211,7 @@
     <link href="http://example.com/2026/01/28/DES/"/>
     <id>http://example.com/2026/01/28/DES/</id>
     <published>2026-01-27T16:00:00.000Z</published>
-    <updated>2026-05-22T07:46:30.315Z</updated>
+    <updated>2026-05-22T07:46:30.000Z</updated>
     
     
       
@@ -230,11 +230,36 @@
   </entry>
   
   <entry>
+    <title>ROT家族</title>
+    <link href="http://example.com/2026/01/20/ROT%E5%AE%B6%E6%97%8F/"/>
+    <id>http://example.com/2026/01/20/ROT%E5%AE%B6%E6%97%8F/</id>
+    <published>2026-01-19T16:00:00.000Z</published>
+    <updated>2026-07-31T02:50:26.860Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;ROT函数，意味循环位移函数，用于将特定数据进行特定方向和位数的旋转位移&lt;/p&gt;
+&lt;p&gt;核心性质有三：&lt;/p&gt;
+&lt;p&gt;1.&lt;font</summary>
+        
+      
+    
+    
+    
+    <category term="LEARN" scheme="http://example.com/categories/LEARN/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>二叉树</title>
     <link href="http://example.com/2026/01/19/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <id>http://example.com/2026/01/19/%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
     <published>2026-01-18T16:00:00.000Z</published>
-    <updated>2026-05-22T07:46:30.323Z</updated>
+    <updated>2026-05-22T07:46:30.000Z</updated>
     
     
       
