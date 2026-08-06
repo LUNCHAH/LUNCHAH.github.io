@@ -89,7 +89,7 @@ footer:
   count: true # show word count and reading time
   busuanzi: true
   icon:
-    url: "source/_data/avatar/763c8bbf68374c40b019353e0208837420240622.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
+    url: "/blog_essay_picture/763c8bbf68374c40b019353e0208837420240622.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
     rotate: true
     mask: true # whether to use the images as a mask
 
