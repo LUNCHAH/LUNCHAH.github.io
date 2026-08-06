@@ -1,3 +1,9 @@
+title: FridaHook(持续更新版)
+date: 2026-8-6
+category: LEARN
+cover: /passagecover/8.jpg
+---
+
 ## 前言
 在使用frida时，我们常使用一些命令行来hook上虚拟机或真机，同时在我们写hook脚本时，我们也会常用到一些frida的API来为我们服务，这篇文章的主要目的就是来详细讲讲fridahook中的一些注意事项，命令和脚本书写，脚本API等。<font style="color:#DF2A3F;">由于作者本人也在逐渐学习，目前也处于处于入门阶段，所以本篇文章会逐渐更新完善和更改修正，在完结之前请批判性阅读。</font>
 
