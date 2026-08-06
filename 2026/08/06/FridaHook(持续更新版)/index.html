@@ -20,18 +20,18 @@
     <meta name="description" content="前言 在使用frida时，我们常使用一些命令行来hook上虚拟机或真机，同时在我们写hook脚本时，我们也会常用到一些frida的API来为我们服务，这篇文章的主要目的就是来详细讲讲fridahook中的一些注意事项，命令和脚本书写，脚本API等。由于作者本人也在逐渐学习，目前也处于处于入门阶段，所以本篇文章会逐渐更新完善和更改修正，在完结之前请批判性阅读。  工具类 一般来说我们在做安卓题时需">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FridaHook(持续更新版)">
-<meta property="og:url" content="http://example.com/2026/05/24/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/index.html">
+<meta property="og:url" content="http://example.com/2026/08/06/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/index.html">
 <meta property="og:site_name" content="LUNCHAH&#39;s Blog">
 <meta property="og:description" content="前言 在使用frida时，我们常使用一些命令行来hook上虚拟机或真机，同时在我们写hook脚本时，我们也会常用到一些frida的API来为我们服务，这篇文章的主要目的就是来详细讲讲fridahook中的一些注意事项，命令和脚本书写，脚本API等。由于作者本人也在逐渐学习，目前也处于处于入门阶段，所以本篇文章会逐渐更新完善和更改修正，在完结之前请批判性阅读。  工具类 一般来说我们在做安卓题时需">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/blog_essay_picture/FridaHookpicture.png">
-<meta property="article:published_time" content="2026-05-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-24T05:37:33.000Z">
+<meta property="article:published_time" content="2026-08-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-06T09:12:04.739Z">
 <meta property="article:author" content="LUNCHAH">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/blog_essay_picture/FridaHookpicture.png">
     <link rel="alternate" href="/atom.xml" title="LUNCHAH's Blog" type="application/atom+xml">
-    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="shortcut icon" href="/_data/avatar/head.jpg">
   
 <link rel="stylesheet" href="/css/style.css">
 
@@ -147,7 +147,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text"> 工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text"> 脚本类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text"> 命令类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#adb%E5%91%BD%E4%BB%A4"><span class="toc-number">4.1.</span> <span class="toc-text"> adb命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frida%E5%91%BD%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text"> frida命令</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text"> 工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#adb%E5%91%BD%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text"> adb命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text"> 环境安装类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#frida%E5%91%BD%E4%BB%A4"><span class="toc-number">5.</span> <span class="toc-text"> frida命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text"> 脚本类</span></a></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -230,8 +230,8 @@
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link icon-calendar" data-aos="zoom-in">
-    <time datetime="2026-05-23T16:00:00.000Z" itemprop="datePublished">2026-05-24</time>
-    <time style="display: none;" id="post-update-time">2026-05-24</time>
+    <time datetime="2026-08-05T16:00:00.000Z" itemprop="datePublished">2026-08-06</time>
+    <time style="display: none;" id="post-update-time">2026-08-06</time>
   </span>
 </div>
 
@@ -245,21 +245,7 @@
 <h2 id="工具类"><a class="markdownIt-Anchor" href="#工具类"></a> 工具类</h2>
 <p>一般来说我们在做安卓题时需要用到虚拟机，而我个人推荐studio64，当然用uu模拟器也行，看个人习惯。但我还是想说安卓studio用习惯其实感觉还不错，很纯净很方便，跟真机更加接近，方便后面逐渐接触真机的学习。</p>
 <p>安卓studio的官方下载网址为：<a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio?hl=zh-cn">https://developer.android.google.cn/studio?hl=zh-cn</a></p>
-<h2 id="脚本类"><a class="markdownIt-Anchor" href="#脚本类"></a> 脚本类</h2>
-<p>安卓逆向中我们常撰写JS脚本来hookapp，而其中的接口和API则是需要用frida所提供的，倘若脚本不符合frida所提供的API或有本质上的JS语法错误frida会直接报错，下面讲讲常见的fridaAPI</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>这个命令非常重要，这是fridahook脚本的必要开头，主要作用在于当与JVM连接成功后才会启动内部代码，否则将不会执行其内部代码，。基本上写fridahook脚本记死这个开头就行。但值得注意的是在hooknative层时是不需要用这个开头的，毕竟native层不依赖JVM。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Java</span>.<span class="title function_">use</span>(...)</span><br></pre></td></tr></table></figure>
-<p>这个的主要作用就是调用我们所需要的特定的类，但值得注意的是，当我们都调用某一个特定的函数时要注意是否为public static，倘若不是那么我们就要创造一个实例即a.$new()才能正常hook</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">。。。.。。。.<span class="property">implementation</span>=<span class="keyword">function</span>(<span class="params">...</span>)&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个语句的主要作用在于当我们需要将某一函数内部逻辑替换掉或强行返回某一特定的值(诸如此类的功能)时我们可以使用这个API，那么当我们hook上app后进程中的这个函数就会被API内的逻辑所替换。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>()</span><br></pre></td></tr></table></figure>
-<p>输出逻辑</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Java</span>.<span class="title function_">choose</span>(<span class="string">&quot;xxx&quot;</span>, &#123;</span><br><span class="line">        <span class="attr">onMatch</span>: <span class="keyword">function</span>(<span class="params">instance</span>) &#123;</span><br><span class="line">            instance.<span class="title function_">get_flag</span>(<span class="number">1337</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">onComplete</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;done&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>当我们遇到一些对象无法正常hook时，比如mainactivity中的对象，我们就要使用这套API。它会进入内存中搜索choose后的进程名称或具体函数，一旦有符合的就进入onmatch中，执行onmatch中的逻辑，搜索过程中每有一次符合就会调用一次onmatch，当所有都完成后就会调用oncomplete，终止搜索和执行。</p>
-<h2 id="命令类"><a class="markdownIt-Anchor" href="#命令类"></a> 命令类</h2>
-<p>命令类有两种类别，一种是adb命令，一种是frida命令。</p>
-<h3 id="adb命令"><a class="markdownIt-Anchor" href="#adb命令"></a> adb命令</h3>
+<h2 id="adb命令"><a class="markdownIt-Anchor" href="#adb命令"></a> adb命令</h2>
 <p>adb命令更像是上帝视角，使用adb时我们更多的是在以外部向内看，主要是用来获取权限，查看日志，安装，删除之类的事，更多的是对系统的管理和处理。</p>
 <p>常见的adb命令如下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
@@ -278,16 +264,49 @@
 <p>进入shell后直接cd /data/local/tmp/然后ls查看fridaserver是否推送成功，然后执行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 xxx</span><br></pre></td></tr></table></figure>
 <p>为fridaserver赋权，然后./fridaserver即可。</p>
-<h3 id="frida命令"><a class="markdownIt-Anchor" href="#frida命令"></a> frida命令</h3>
+<h2 id="环境安装类"><a class="markdownIt-Anchor" href="#环境安装类"></a> 环境安装类</h2>
+<p>frida的正常运行需要安装两个，一个是pip下载frida，一个是对应版本的frida-server。</p>
+<p>frida-server的github下载地址为：<a target="_blank" rel="noopener" href="https://github.com/frida/frida/releases">https://github.com/frida/frida/releases</a>，在这里你可以根据你的模拟器型号，例如x86_64，arm64，来下载frida-server，然后运行命令adb push [你的frida-server] [目标地址]，这个目标地址一般是/data/local/tmp/。</p>
+<p>frida的安装需要依靠python环境，笔者推荐frida17.5.2，搭配使用python3.12.4和frida-tools14.2.x，比较适合新手学习，frida的安装命令为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install frida==你要的版本</span><br><span class="line">pip install frida-tools==你要的版本</span><br></pre></td></tr></table></figure>
+<p>安装好后可以输入命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida --version</span><br></pre></td></tr></table></figure>
+<p>来查看自己是否安装成功。</p>
+<h2 id="frida命令"><a class="markdownIt-Anchor" href="#frida命令"></a> frida命令</h2>
 <p>frida的命令结构一般为</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida [操作] [目标]</span><br></pre></td></tr></table></figure>
-<p>像我们常见的frida -U -f xxx -l xxx.js就是这种格式。frida还有很多其他的操作系数，下面来详细讲讲</p>
+<p>像我们常见的frida -U -f xxx -l xxx.js和frida -U -f xxx就是这种格式。frida还有很多其他的操作系数，下面来详细讲讲</p>
 <p>-U：连接USB设备，包括但不限于真机和模拟器</p>
 <p>-f：启动某个具体的app进程并注入</p>
 <p>-l：load</p>
 <p>–no-pause：较新版本的frida基本不需要这个命令了，其作用是是注入后继续运行，防止进程注入后停止</p>
 <p>-n：也就是attach，即附加到正在运行的进程中</p>
 <p>-p：与上面-f不同，-f后加具体的app名称，-p后加的是某一进程的PID</p>
+<h2 id="脚本类"><a class="markdownIt-Anchor" href="#脚本类"></a> 脚本类</h2>
+<p>安卓逆向中我们常撰写JS脚本来hookapp，而其中的接口和API则是需要用frida所提供的，倘若脚本不符合frida所提供的API或有本质上的JS语法错误frida会直接报错，下面讲讲常见的fridaAPI</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这个命令非常重要，这是fridahook脚本的必要开头，主要作用在于当与JVM连接成功后才会启动内部代码，否则将不会执行其内部代码，。基本上写fridahook脚本记死这个开头就行。但值得注意的是在hooknative层时是不需要用这个开头的，毕竟native层不依赖JVM。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Java</span>.<span class="title function_">use</span>(...)</span><br></pre></td></tr></table></figure>
+<p>这个的主要作用就是调用我们所需要的特定的类，但值得注意的是，当我们都调用某一个特定的函数时要注意是否为public static，倘若不是那么我们就要创造一个实例即a.$new()才能正常hook</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">。。。.。。。.<span class="property">implementation</span>=<span class="keyword">function</span>(<span class="params">...</span>)&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个语句的主要作用在于当我们需要将某一函数内部逻辑替换掉或强行返回某一特定的值(诸如此类的功能)时我们可以使用这个API，那么当我们hook上app后进程中的这个函数就会被API内的逻辑所替换。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>()</span><br></pre></td></tr></table></figure>
+<p>输出逻辑</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Java</span>.<span class="title function_">choose</span>(<span class="string">&quot;xxx&quot;</span>, &#123;</span><br><span class="line">        <span class="attr">onMatch</span>: <span class="keyword">function</span>(<span class="params">instance</span>) &#123;</span><br><span class="line">            instance.<span class="title function_">get_flag</span>(<span class="number">1337</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">onComplete</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;done&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当我们遇到一些对象无法正常hook时，比如mainactivity中的对象，我们就要使用这套API。它会进入内存中搜索choose后的进程名称或具体函数，一旦有符合的就进入onmatch中，执行onmatch中的逻辑，搜索过程中每有一次符合就会调用一次onmatch，当所有都完成后就会调用oncomplete，终止搜索和执行。</p>
+<p>需要注意的是，当我们在使用choose时，我们应当先frida -U -f进入程序，然后再把我们的复制到shell中跑，如果直接frida -U -f xxx -l xxx.js的话大概率会因为mainactivity还未初始化，导致choose无法找到mainactivity的实例无法正常hook。</p>
+<p>在撰写hook脚本时我们常会遇到某个函数是非static，这是我们就需要去new一个实例给这个函数来方便我们hook，即</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> example=xxx.$new(...)</span><br></pre></td></tr></table></figure>
+<p>这个语句在使用时需要看具体函数逻辑，譬如我需要hook某个如下的checker函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Checker</span> &#123;</span><br><span class="line">    <span class="type">int</span> num1;</span><br><span class="line">    <span class="type">int</span> num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么我在撰写脚本时就需要写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=a.$new();</span><br><span class="line">obj.<span class="property">num1</span>.<span class="title function_">value</span>(...);</span><br><span class="line">obj.<span class="property">num2</span>.<span class="title function_">value</span>(...);</span><br></pre></td></tr></table></figure>
+<p>因为这个checker逻辑没有规定任何传参及其形式，所以我可以直接new一个实例</p>
+<p>但是倘若像如下checker规定了传参</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Checker</span> &#123;</span><br><span class="line">    <span class="type">int</span> num1;</span><br><span class="line">    <span class="type">int</span> num2;</span><br><span class="line"></span><br><span class="line">    Checker(<span class="type">int</span> a, <span class="type">int</span> b) &#123;</span><br><span class="line">        <span class="built_in">this</span>.num1 = a;</span><br><span class="line">        <span class="built_in">this</span>.num2 = b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么我们在写hook脚本时就不能直接空new，而是在符合这个函数的特定需求的情况下去new，像如下语句</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=a.$new(... , ...);</span><br></pre></td></tr></table></figure>
+<p>至于上文所提及的无法正常hookmainactivity的情况其实就是在mainactivity中我们不能随意进行new，那么这是我们就需要利用Java.choose去搜索进程再使用Java.use然后才去new，而不是直接new一个实例出来。</p>
 
     </div>
     <footer class="article-footer">
@@ -329,10 +348,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        43.4k
+        44k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        03:52
+        03:55
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -354,7 +373,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text"> 工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text"> 脚本类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text"> 命令类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#adb%E5%91%BD%E4%BB%A4"><span class="toc-number">4.1.</span> <span class="toc-text"> adb命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frida%E5%91%BD%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text"> frida命令</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text"> 工具类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#adb%E5%91%BD%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text"> adb命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text"> 环境安装类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#frida%E5%91%BD%E4%BB%A4"><span class="toc-number">5.</span> <span class="toc-text"> frida命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E7%B1%BB"><span class="toc-number">6.</span> <span class="toc-text"> 脚本类</span></a></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -489,12 +508,12 @@
         window.REIMU_POST = {
           author: "LUNCHAH",
           title: "FridaHook(持续更新版)",
-          url: "http://example.com/2026/05/24/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/",
+          url: "http://example.com/2026/08/06/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/",
           excerpt: "",
           description: "",
           stripContent: " 前言 在使用frida时，我们常使用一些命令行来hook上虚拟机或真机，同时在我们写hook脚本时，我们也会常用到一些frida的API来为我们服务，这篇文章的主要目的就是来详细讲讲fridahook中的一些注意事项，命令和脚本书写，脚本API等。由于作者本人也在逐渐学习，目前也处于处于入门阶段，所以本篇文章会逐渐更新完善和更改修正，在完结之前请批判性阅读。  工具类 一般来说我们在做安卓题时需要用到虚拟机，而我个人推荐studio64，当然用uu模拟器也行，看个人习惯。但我还是想说安卓stu",
-          date: "Sun May 24 2026 00:00:00 GMT+0800",
-          updated: "Sun May 24 2026 13:37:33 GMT+0800",
+          date: "Thu Aug 06 2026 00:00:00 GMT+0800",
+          updated: "Thu Aug 06 2026 17:12:04 GMT+0800",
           cover: "/passagecover/8.jpg",
         };
       </script>
