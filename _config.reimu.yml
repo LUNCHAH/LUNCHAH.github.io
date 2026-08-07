@@ -91,7 +91,7 @@ footer:
   icon:
     url: "https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEYuWdqdUtDExn89D6y4LjfZH7yBEhBdwAC6CYAAtsbqFfo5x6CDrSzbD0E.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
     rotate: true
-    mask: false # whether to use the images as a mask
+    mask: true # whether to use the images as a mask
 
 # Sidebar
 # sidebar: right # deprecated, use sidebar.position instead
