@@ -1897,22 +1897,8 @@ button {
 .footer-info-sep.rotate {
   animation: rotate-all 3s linear infinite;
 }
-@supports (-webkit-mask: var(--footer-icon) no-repeat center/80%) {
-  .footer-info-sep {
-    background-color: var(--red-1);
-    -webkit-mask: var(--footer-icon) no-repeat center/80%;
-  }
-}
-@supports (mask: var(--footer-icon) no-repeat center/80%) {
-  .footer-info-sep {
-    background-color: var(--red-1);
-    mask: var(--footer-icon) no-repeat center/80%;
-  }
-}
-@supports not ((mask: var(--footer-icon) no-repeat center/80%) and (-webkit-mask: var(--footer-icon) no-repeat center/80%)) {
-  .footer-info-sep {
-    background: var(--footer-icon) no-repeat center/80%;
-  }
+.footer-info-sep {
+  background: var(--footer-icon) no-repeat center/80%;
 }
 @media screen and (min-width: 960px) {
   #mobile-nav {
