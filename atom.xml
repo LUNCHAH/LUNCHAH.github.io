@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2026-08-06T09:12:04.739Z</updated>
+  <updated>2026-08-11T04:56:19.320Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FridaNativeHook(持续更新版)</title>
+    <link href="http://example.com/2026/08/11/FridaNativeHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/"/>
+    <id>http://example.com/2026/08/11/FridaNativeHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/</id>
+    <published>2026-08-10T16:00:00.000Z</published>
+    <updated>2026-08-11T04:56:19.320Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前言&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="LEARN" scheme="http://example.com/categories/LEARN/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>FridaHook(持续更新版)</title>
