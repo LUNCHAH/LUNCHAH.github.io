@@ -1,3 +1,9 @@
+title: FridaNativeHook(持续更新版)
+date: 2026-8-11
+category: LEARN
+cover: /passagecover/14.jpg
+---
+
 ## 前言
 按理来说这篇文章可以放在FridaHook里，但由于是一个难点，变式多样，很多地方和FridaHook的Java层hook不一样，所以单开一篇，方便知识点的查阅学习。<font style="color:#DF2A3F;">由于笔者也在逐渐学习，所以文章会逐步丰富更新，同时也难免出现一些错误遗落，还请读者斧正和批判性阅读</font>。
 
