@@ -1,7 +1,7 @@
 title: FridaNativeHook(持续更新版)
 date: 2026-8-11
 category: LEARN
-cover: /passagecover/14.jpg
+cover: /blog_essay_picture/14.jpg
 ---
 
 ## 前言
