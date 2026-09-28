@@ -9,7 +9,7 @@ GWHT的逆向小登一枚
 Loading...
 ## 履历
 顺丰蓝军
-Loading
+Loading...
 ## 所属队伍
 GWHT
 星盟预备队
