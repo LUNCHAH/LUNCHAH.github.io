@@ -9,7 +9,7 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://example.com';</script>
   <title>
-    归档: 2026 | LUNCHAH&#39;s Blog
+    C2环境问题一览及解决方式 | LUNCHAH&#39;s Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
@@ -17,17 +17,17 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="逆向小手子">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LUNCHAH&#39;s Blog">
-<meta property="og:url" content="http://example.com/archives/2026/index.html">
+    <meta name="description" content="前言 这里所言之C2指的是如下链接中的C2 https:&#x2F;&#x2F;github.com&#x2F;Adaptix-Framework&#x2F;AdaptixC2 官方wiki链接如下 https:&#x2F;&#x2F;adaptix-framework.gitbook.io&#x2F;adaptix-framework 还请仔细鉴别C2版本及来源 笔者也是初学，本博客会随着笔者学习而逐渐更新。  正文  1.client下载 从github将zi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C2环境问题一览及解决方式">
+<meta property="og:url" content="http://example.com/2026/09/28/C2%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="LUNCHAH&#39;s Blog">
-<meta property="og:description" content="逆向小手子">
+<meta property="og:description" content="前言 这里所言之C2指的是如下链接中的C2 https:&#x2F;&#x2F;github.com&#x2F;Adaptix-Framework&#x2F;AdaptixC2 官方wiki链接如下 https:&#x2F;&#x2F;adaptix-framework.gitbook.io&#x2F;adaptix-framework 还请仔细鉴别C2版本及来源 笔者也是初学，本博客会随着笔者学习而逐渐更新。  正文  1.client下载 从github将zi">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/banner.webp">
+<meta property="article:published_time" content="2026-09-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-28T08:16:45.299Z">
 <meta property="article:author" content="LUNCHAH">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/banner.webp">
     <link rel="alternate" href="/atom.xml" title="LUNCHAH's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/head.ico">
   
@@ -125,16 +125,14 @@
   </nav>
 </div>
 <header id="header" aria-label="Site header">
-      <picture>
-      </picture>
-        <img  fetchpriority="high" src="/passagecover/35b418097280c37e567d680b2232fb51.jpg" alt="">
+    <picture></picture>
+    <img  fetchpriority="high" src="/passagecover/17.jpg" alt="C2环境问题一览及解决方式">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">归档</h1>
+            <h1 data-aos="slide-up">C2环境问题一览及解决方式</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
-            <span id="subtitle">2026</span>
         </h2>
     </div>
   </div>
@@ -142,10 +140,15 @@
 
         <div id="content" aria-label="Page content"  class="sidebar-right" >
           <aside id="sidebar" aria-label="Sidebar">
-  <div class="sidebar-wrapper-container ">
+  <div class="sidebar-wrapper-container sticky">
   <div class="sidebar-wrapper">
     <div class="sidebar-wrap" data-aos="fade-up">
-        <div class="sidebar-author">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text"> 正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1client%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.</span> <span class="toc-text"> 1.client下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2server%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text"> 2.server配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E5%90%AF%E5%8A%A8server%E5%B9%B6%E8%BF%9E%E6%8E%A5client"><span class="toc-number">2.3.</span> <span class="toc-text"> 3.启动server并连接client</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/head.jpg" data-sizes="auto" alt="LUNCHAH" class="lazyload">
   <div class="sidebar-author-name">LUNCHAH</div>
   <div class="sidebar-description">逆向小手子</div>
@@ -208,172 +211,71 @@
         <div class="sidebar-menu-link">友链</div>
       </div>
 </div>
-
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
     </div>
   </div>
   <div class="sidebar-widget">
-        <div class="widget-wrapper">
-    <div class="widget-wrap" data-aos="fade-up">
-      <h3 class="widget-title">分类</h3>
-      <div class="widget">
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GAME/" title="GAME">GAME</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/LEARN/" title="LEARN">LEARN</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Weekly/" title="Weekly">Weekly</a></li></ul>
-      </div>
-    </div>
-  </div>
-
-        <div class="widget-wrapper">
-    <div class="widget-wrap" data-aos="fade-up">
-      <h3 class="widget-title">归档</h3>
-      <div class="widget">
-        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">九月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/08/">八月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">五月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li></ul>
-      </div>
-    </div>
-  </div>
-
-        <div class="widget-wrapper">
-    <div class="widget-wrap" data-aos="fade-up">
-      <h3 class="widget-title">最新文章</h3>
-      <div class="widget">
-        <ul>
-            <li>
-              <a href="/2026/09/28/C2%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/" title="C2环境问题一览及解决方式">C2环境问题一览及解决方式</a>
-            </li>
-            <li>
-              <a href="/2026/09/24/Windows%E5%85%8D%E6%9D%80%E4%B9%8BC2%E5%85%A5%E9%97%A8/" title="Windows免杀之C2入门">Windows免杀之C2入门</a>
-            </li>
-            <li>
-              <a href="/2026/08/11/FridaNativeHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/" title="FridaNativeHook(持续更新版)">FridaNativeHook(持续更新版)</a>
-            </li>
-            <li>
-              <a href="/2026/08/06/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/" title="FridaHook(持续更新版)">FridaHook(持续更新版)</a>
-            </li>
-            <li>
-              <a href="/2026/05/21/Week10/" title="Week10">Week10</a>
-            </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
   </div>
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><div class="archives-outer-wrap" data-aos="fade-up">
-    <div class="tag-wrap">
+          <section id="main" aria-label="Main content"><article id="post-C2环境问题一览及解决方式" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-09-27T16:00:00.000Z" itemprop="datePublished">2026-09-28</time>
+    <time style="display: none;" id="post-update-time">2026-09-28</time>
+  </span>
 </div>
-<div class="category-wrap">
-    <div class="archives-category-list-item" data-aos="zoom-in">
-      <a class="archives-category-list-link" href="/categories/Weekly/">Weekly</a>
+
     </div>
-    <div class="archives-category-list-item" data-aos="zoom-in">
-      <a class="archives-category-list-link" href="/categories/LEARN/">LEARN</a>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>这里所言之C2指的是如下链接中的C2</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Adaptix-Framework/AdaptixC2">https://github.com/Adaptix-Framework/AdaptixC2</a></p>
+<p>官方wiki链接如下</p>
+<p><a target="_blank" rel="noopener" href="https://adaptix-framework.gitbook.io/adaptix-framework">https://adaptix-framework.gitbook.io/adaptix-framework</a></p>
+<p>还请仔细鉴别C2版本及来源</p>
+<p>笔者也是初学，本博客会随着笔者学习而逐渐更新。</p>
+<h2 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h2>
+<h3 id="1client下载"><a class="markdownIt-Anchor" href="#1client下载"></a> 1.client下载</h3>
+<p>从github将zip下载后进入client文件夹按照官方wiki的教程是双击build.bat文件就可一键获取client，但除非像教程所言将client下载到C盘否则并不可以实现一键运行bat文件得到能正常使用的client，此时需要按官方wiki所言下载mingw64工具链，然后用编辑器打开bat文件将里面的path和echo内的地址全部改为mingw64所在地址保存运行即可。</p>
+<p>但是，bat文件所在目录下不能只有一个bat文件，需要有完整的Headers，Libs，Resources，Source和CMakelists在同一目录下，所以若想将client安装到别的路径时需要将原文件夹全部复制否则将安装失败。安装成功后目录中会出现dist和cmake-build-release文件夹，可以正常运行的client就在dist文件夹内。</p>
+<h3 id="2server配置"><a class="markdownIt-Anchor" href="#2server配置"></a> 2.server配置</h3>
+<p>大多数情况下都会将server安装到linux虚拟机或linux实体机中，除非linux版本很低，否则一般不需要安装docker，其余步骤按照官方wiki中的入门-安装服务器的步骤来即可。</p>
+<h3 id="3启动server并连接client"><a class="markdownIt-Anchor" href="#3启动server并连接client"></a> 3.启动server并连接client</h3>
+<p>按wiki内所言成功配置好server后，linux内相应的地址内同样会出现dist文件，其内部的profile.yaml就是server连接的配置文件，其中interface的默认设置是0.0.0.0，即自动检测IP进行适配，可以不变也可以替换为虚拟机IP等，端口可自定义，密码可自定义，连接时在client内填写正确即可。接下来需要按官方wiki所言利用脚本生成一份ssl证书。</p>
+<p>此时启动server并尝试让client与其连接大概率会出现TLS握手失败，因为windows把这份自生成的ssl证书归为危险，并拒绝这份证书，导致服务器无法与客户端连接。此时只需要将相应证书传给client所在的windows然后双击进行设置，将其设置为受信任的根证书颁发机构即可。</p>
+<p>完成以上步骤再重启server与client并填好相应信息尝试connect即可，大概率是可以连接成功的，连接成功后主AdaptixClient窗口将开放。</p>
+
     </div>
-    <div class="archives-category-list-item" data-aos="zoom-in">
-      <a class="archives-category-list-link" href="/categories/GAME/">GAME</a>
+    <footer class="article-footer">
+        <a class="article-category-link" href="/categories/LEARN/" title="LEARN" data-aos="zoom-in">LEARN</a>
+
+      
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    <div class="article-nav-link-wrap right">
+        <img data-src="/passagecover/16.jpg" data-sizes="auto" alt="Windows免杀之C2入门" class="lazyload">
+      <a href="/2026/09/24/Windows%E5%85%8D%E6%9D%80%E4%B9%8BC2%E5%85%A5%E9%97%A8/" aria-label="后一篇: Windows免杀之C2入门"  title="后一篇: Windows免杀之C2入门"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+          Windows免杀之C2入门
+      </h3>
     </div>
-</div>
-        <section class="archives-wrap" data-aos="fade-up">
-          <div class="archive-year-wrap">
-            <a href="/archives/2026" class="archive-year">2026</a>
-          </div>
-          <ul>
-            <li class="archive-article">
-  <div class="archive-article-date">
-    <span>
-      <time class="dt-published" datetime="2026-09-27T16:00:00.000Z" itemprop="datePublished">09-28</time>
-    </span>
-  </div>
-    <a class="archive-article-title" href="/2026/09/28/C2%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/">C2环境问题一览及解决方式</a>
-</li>
-
-            <li class="archive-article">
-  <div class="archive-article-date">
-    <span>
-      <time class="dt-published" datetime="2026-09-23T16:00:00.000Z" itemprop="datePublished">09-24</time>
-    </span>
-  </div>
-    <a class="archive-article-title" href="/2026/09/24/Windows%E5%85%8D%E6%9D%80%E4%B9%8BC2%E5%85%A5%E9%97%A8/">Windows免杀之C2入门</a>
-</li>
-
-            <li class="archive-article">
-  <div class="archive-article-date">
-    <span>
-      <time class="dt-published" datetime="2026-08-10T16:00:00.000Z" itemprop="datePublished">08-11</time>
-    </span>
-  </div>
-    <a class="archive-article-title" href="/2026/08/11/FridaNativeHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/">FridaNativeHook(持续更新版)</a>
-</li>
-
-            <li class="archive-article">
-  <div class="archive-article-date">
-    <span>
-      <time class="dt-published" datetime="2026-08-05T16:00:00.000Z" itemprop="datePublished">08-06</time>
-    </span>
-  </div>
-    <a class="archive-article-title" href="/2026/08/06/FridaHook(%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%E7%89%88)/">FridaHook(持续更新版)</a>
-</li>
-
-            <li class="archive-article">
-  <div class="archive-article-date">
-    <span>
-      <time class="dt-published" datetime="2026-05-20T16:00:00.000Z" itemprop="datePublished">05-21</time>
-    </span>
-  </div>
-    <a class="archive-article-title" href="/2026/05/21/Week10/">Week10</a>
-</li>
-
-            <li class="archive-article">
-  <div class="archive-article-date">
-    <span>
-      <time class="dt-published" datetime="2026-05-19T16:00:00.000Z" itemprop="datePublished">05-20</time>
-    </span>
-  </div>
-    <a class="archive-article-title" href="/2026/05/20/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%88%9D%E5%85%A5%E9%97%A8/">安卓逆向初入门</a>
-</li>
-
-            <li class="archive-article">
-  <div class="archive-article-date">
-    <span>
-      <time class="dt-published" datetime="2026-04-01T16:00:00.000Z" itemprop="datePublished">04-02</time>
-    </span>
-  </div>
-    <a class="archive-article-title" href="/2026/04/02/5/">Week5</a>
-</li>
-
-            <li class="archive-article">
-  <div class="archive-article-date">
-    <span>
-      <time class="dt-published" datetime="2026-03-07T16:00:00.000Z" itemprop="datePublished">03-08</time>
-    </span>
-  </div>
-    <a class="archive-article-title" href="/2026/03/08/1/">Week1</a>
-</li>
-
-            <li class="archive-article">
-  <div class="archive-article-date">
-    <span>
-      <time class="dt-published" datetime="2026-02-25T16:00:00.000Z" itemprop="datePublished">02-26</time>
-    </span>
-  </div>
-    <a class="archive-article-title" href="/2026/02/26/AES/">AES</a>
-</li>
-
-            <li class="archive-article">
-  <div class="archive-article-date">
-    <span>
-      <time class="dt-published" datetime="2026-02-06T16:00:00.000Z" itemprop="datePublished">02-07</time>
-    </span>
-  </div>
-    <a class="archive-article-title" href="/2026/02/07/SHCTF-re%20%E9%98%B6%E6%AE%B5%E4%B8%80/">SHCTF-re 阶段一</a>
-</li>
-
-          </ul>
-        </section>
-  </div>
-  <nav id="page-nav" aria-label="Pagination navigation" data-aos="fade-up">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2026/page/2/">2</a><a class="extend next" rel="next" href="/archives/2026/page/2/">下一页 &raquo;</a>
   </nav>
+
+</article>
+
 
 </section>
         </div>
@@ -417,7 +319,12 @@
       </div>
       <nav id="mobile-nav" aria-label="Mobile navigation">
   <div class="sidebar-wrap">
-      <div class="sidebar-author">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text"> 正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1client%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.</span> <span class="toc-text"> 1.client下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2server%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text"> 2.server配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E5%90%AF%E5%8A%A8server%E5%B9%B6%E8%BF%9E%E6%8E%A5client"><span class="toc-number">2.3.</span> <span class="toc-text"> 3.启动server并连接client</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/head.jpg" data-sizes="auto" alt="LUNCHAH" class="lazyload">
   <div class="sidebar-author-name">LUNCHAH</div>
   <div class="sidebar-description">逆向小手子</div>
@@ -480,8 +387,12 @@
         <div class="sidebar-menu-link">友链</div>
       </div>
 </div>
-
+</div>
   </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
 </nav>
 
     </div>
@@ -539,6 +450,49 @@
 
 <div id="lazy-script">
   <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "LUNCHAH",
+          title: "C2环境问题一览及解决方式",
+          url: "http://example.com/2026/09/28/C2%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98%E4%B8%80%E8%A7%88%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/",
+          excerpt: "",
+          description: "",
+          stripContent: " 前言 这里所言之C2指的是如下链接中的C2 https://github.com/Adaptix-Framework/AdaptixC2 官方wiki链接如下 https://adaptix-framework.gitbook.io/adaptix-framework 还请仔细鉴别C2版本及来源 笔者也是初学，本博客会随着笔者学习而逐渐更新。  正文  1.client下载 从github将zip下载后进入client文件夹按照官方wiki的教程是双击build.bat文件就可一键获取clie",
+          date: "Mon Sep 28 2026 00:00:00 GMT+0800",
+          updated: "Mon Sep 28 2026 16:16:45 GMT+0800",
+          cover: "/passagecover/17.jpg",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
   </div>
 </div>
 
