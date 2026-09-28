@@ -1,7 +1,7 @@
 title: Windows免杀之C2入门
 date: 2026-09-24
 category: LEARN
-cover: /passagecover/16.jpg
+cover: /passagecover/20.jpg
 ---
 
 # 前言
