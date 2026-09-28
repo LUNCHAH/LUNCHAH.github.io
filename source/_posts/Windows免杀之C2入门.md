@@ -1,3 +1,9 @@
+title: Windows免杀之C2入门
+date: 2026-09-24
+category: LEARN
+cover: /passagecover/16.jpg
+---
+
 # 前言
 由于笔者是第一次接触windows免杀方面的知识，所整理的知识点难免有错漏，再加上Windows方面本身就繁复错杂，所以很多地方笔者的研究和理解都不够，望读者海涵斧正。本篇博客会随着笔者研究和学习的深入而更新。
 
