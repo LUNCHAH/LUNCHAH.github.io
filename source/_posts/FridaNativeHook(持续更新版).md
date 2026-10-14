@@ -105,7 +105,7 @@ var addr = libc.getExportByName("strcmp");
 
 接下来说说onEnter(args)这个API
 
-onEnter的作用在于在函数进入时执行其内部函数，而args就是我们所有hook函数的参数，因为这里hook了函数的参数，所以后面我们需要将args来具体赋值，示例如下
+onEnter的作用在于在函数进入时执行其内部函数，而args就是我们所要hook函数的参数，因为这里hook了函数的参数，所以后面我们需要将args来具体赋值，示例如下
 
 ```javascript
 onEnter(args)
