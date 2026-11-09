@@ -9,8 +9,7 @@ cover: /passagecover/35b418097280c37e567d680b2232fb51.jpg
 
 首先jadx，发现代码被严重混淆了，查阅博客后发现可以按照下图的方式进行排除
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1778065978451-dbb78180-33d6-4c16-8236-ac038132ee3d.png)
+![](/blog_essay_picture/FridaLab/1.png)
 
 勾选后混乱代码的可读性大大增强。
 
@@ -40,8 +39,8 @@ cover: /passagecover/35b418097280c37e567d680b2232fb51.jpg
 
 ```
 
-由于这里给了目标字符串和逻辑，我们直接抄就能抄过来，不过其实这就是个位移密码(凯撒)，左移21位，可以在线工具一把梭<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1778071532057-0ce558f7-7171-43d3-bae9-5231a9062fa8.png)
+由于这里给了目标字符串和逻辑，我们直接抄就能抄过来，不过其实这就是个位移密码(凯撒)，左移21位，可以在线工具一把梭
+![](/blog_essay_picture/FridaLab/2.png)
 
 但是这样就少了很多趣味，并且学不到什么frida的知识，所以我们重点看fridahook
 
@@ -76,8 +75,7 @@ frida -U -n "Frida 0x1" -l "hook.js"
 
 由于我们是attach上的，所以我们需要让程序刷新一次，经搜索得知，当我们旋转虚拟机的屏幕后，虚拟机会销毁当前activity并重启，这样我们就能强行attach上了。又由源码中的计算公式得知，当我们return 5时，我们需要输入14，输入后得到flag
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1778116533495-39af6c7f-fd20-4a8a-af31-65e22d9477ed.png)
+![](/blog_essay_picture/FridaLab/3.png)
 
 ## FridaLab-0x2
 逻辑清晰的题，主逻辑如下
@@ -111,8 +109,8 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-可以看到当a=4919时app就会实现自解密。运行app回显如下<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779028627708-e3ffc898-1072-4b27-a19e-bfea83774c81.png)
+可以看到当a=4919时app就会实现自解密。运行app回显如下
+![](/blog_essay_picture/FridaLab/4.png)
 
 可以看到app并没有给出一个可以输入的地方，那么我们就只能通过frida强制赋值然后让程序输出flag。hook脚本如下
 
@@ -126,8 +124,7 @@ Java.perform(function() {
 
 输入后可以看到app回显如下
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779028808188-edf0ca48-0eb9-4eb6-b1d3-c014e2011412.png)
+![](/blog_essay_picture/FridaLab/5.png)
 
 便可以得到flag了
 
@@ -240,8 +237,7 @@ Java.perform(function() {
 
 解出flag如下
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779107947003-14b5a5d0-3992-4c55-a7b0-1e6ce0c0a488.png)
+![](/blog_essay_picture/FridaLab/6.png)
 
 第二种解法的hook脚本如下
 
@@ -290,8 +286,8 @@ Java.perform(function() {
 });
 ```
 
-运行之后可以在shell中看到flag的输出<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779111475002-1167d63b-3fa1-4c4b-848c-8cf279447263.png)
+运行之后可以在shell中看到flag的输出
+![](/blog_essay_picture/FridaLab/7.png)
 
 ## FridaLab-0x5
 相比前面几道题这道题考法更新颖，考察了直接在mainactivity中更改appUI让flag显示在屏幕上
@@ -352,8 +348,7 @@ Java.perform(function () {
 
 hook后appUI回显如下
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779269070458-853bae16-2525-4ace-9726-62b06efb2fa1.png)
+![](/blog_essay_picture/FridaLab/8.png)
 
 ## FridaLab-0x6
 mainactivity如下
@@ -418,8 +413,7 @@ Java.perform(function () {
 
 可以得到flag如下
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779868403946-a757fbac-e69f-4895-a4e5-2bc8c38e54b2.png)
+![](/blog_essay_picture/FridaLab/9.png)
 
 但需要注意的是脚本的启动时机，当我们在使用-U -f xxx -l xxx.js时，frida会默认在app启动的一瞬间就注入脚本，但那个时候mainactivity可能还没有初始化，还没被创建，所以这时我们使用Java.choose会无法选中导致直接进入onComplete并输出hacked，所以最好的注入脚本的时候就是使用-U -f xxx 当app正常启动之后再将hook脚本注入进去，这样就能正常得到flag。
 
@@ -527,8 +521,7 @@ Java.perform(function () {
 
 可解出flag为
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1779875030975-3ac08267-f592-4573-af9b-0b74bdcc5600.png)
+![](/blog_essay_picture/FridaLab/10.png)
 
 ## FridaLab-0x8
 开始接触安卓nativehook。首先打开JADX
@@ -631,8 +624,7 @@ Interceptor.attach(strcmp_addr,{
 
 hook后我们在程序中输入Hello并提交虽然程序会会先错误但是我们可以在shell中看到flag的输出
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1786353687263-b8064489-a164-454f-b9b5-49d5547e8dee.png)
+![](/blog_essay_picture/FridaLab/11.png)
 
 详细内容查看文章FridaNativeHook
 
@@ -662,8 +654,7 @@ Interceptor.attach(addr,{
 });
 ```
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1793272089850-7a6c4683-4015-48d2-ae23-124640e54620.png)
+![](/blog_essay_picture/FridaLab/12.png)
 
 点击即可获得flag
 
@@ -702,8 +693,8 @@ var get_flag= new NativeFunction(addr,'void',['int' , 'int']);
 get_flag(1,2);
 ```
 
-注入完成后可在日志中查询到flag<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1793699638966-ccb560b7-c1ae-42be-accf-72d781377d95.png)
+注入完成后可在日志中查询到flag
+![](/blog_essay_picture/FridaLab/13.png)
 
 ## FridaLab-0xB
 两种做法，一种可以直接在so上nop掉指令，然后UP回来，跟花指令基本一个做法，另一种就是nativehook
@@ -746,6 +737,6 @@ Process.attachModuleObserver({
 })
 ```
 
-点击程序中的按钮即可在日志中查看到flag<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/62008266/1793701975732-58ce4804-3976-49db-bf90-53573b6d8bdb.png)
+点击程序中的按钮即可在日志中查看到flag
+![](/blog_essay_picture/FridaLab/14.png)
 
