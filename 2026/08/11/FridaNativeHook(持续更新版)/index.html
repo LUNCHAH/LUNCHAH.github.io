@@ -25,7 +25,7 @@
 <meta property="og:description" content="前言 按理来说这篇文章可以放在FridaHook里，但由于是一个难点，变式多样，很多地方和FridaHook的Java层hook不一样，所以单开一篇，方便知识点的查阅学习。由于笔者也在逐渐学习，所以文章会逐步丰富更新，同时也难免出现一些错误遗落，还请读者斧正和批判性阅读。  什么是NativeHook？ 在了解native前我们需要深入了解一下什么是so文件  什么是so文件？ 正如前面的初入门">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-08-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-08-11T04:56:19.320Z">
+<meta property="article:modified_time" content="2026-11-09T02:38:08.067Z">
 <meta property="article:author" content="LUNCHAH">
 <meta name="twitter:card" content="summary">
     <link rel="alternate" href="/atom.xml" title="LUNCHAH's Blog" type="application/atom+xml">
@@ -145,7 +145,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFnativehook"><span class="toc-number">2.</span> <span class="toc-text"> 什么是NativeHook？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFso%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text"> 什么是so文件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#so%E6%96%87%E4%BB%B6%E5%8F%82%E4%B8%8E%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81"><span class="toc-number">2.2.</span> <span class="toc-text"> so文件参与的执行流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hook"><span class="toc-number">3.</span> <span class="toc-text"> Hook？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fridaapi"><span class="toc-number">3.1.</span> <span class="toc-text"> FridaAPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="toc-number">3.2.</span> <span class="toc-text"> 方法论</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFnativehook"><span class="toc-number">2.</span> <span class="toc-text"> 什么是NativeHook？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFso%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text"> 什么是so文件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#so%E6%96%87%E4%BB%B6%E5%8F%82%E4%B8%8E%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81"><span class="toc-number">2.2.</span> <span class="toc-text"> so文件参与的执行流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hook"><span class="toc-number">3.</span> <span class="toc-text"> Hook？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fridaapi"><span class="toc-number">3.1.</span> <span class="toc-text"> FridaAPI</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -229,7 +229,7 @@
       <div class="article-date">
   <span class="article-date-link icon-calendar" data-aos="zoom-in">
     <time datetime="2026-08-10T16:00:00.000Z" itemprop="datePublished">2026-08-11</time>
-    <time style="display: none;" id="post-update-time">2026-08-11</time>
+    <time style="display: none;" id="post-update-time">2026-11-09</time>
   </span>
 </div>
 
@@ -252,21 +252,33 @@
 <p>程序在正常跑的情况下会将我们的输入传入so，so接收之后经过处理再传出，而我们hook的点主要就在于传入so和so处理这两个地方。</p>
 <p>首先我们会用到新的FridaAPI：Interceptor.attach，onEnter和 Module.findGlobalExportByName()</p>
 <h3 id="fridaapi"><a class="markdownIt-Anchor" href="#fridaapi"></a> FridaAPI</h3>
-<p>首先来讲讲Interceptor.attach这个API，用法为</p>
+<p>首先来讲讲<strong>Interceptor.attach</strong>这个API，用法为</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Interceptor</span>.<span class="title function_">attach</span>(targer_address,&#123;</span><br><span class="line">    ......</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>这是nativehook中较为核心的API之一，意义为将大括号内的hook代码插入替代掉目标地址中的代码。相当于一个Frida拦截器，运行脚本后，当程序运行到我们指定地址时就会触发拦截机制，将函数入口从源码改为我们Frida中的代码，但是Interceptor.attach无法识别函数名，所以我们需要填具体的地址。</p>
-<p>如何找到具体地址呢？Module.findGlobalExportByName() 就是一个很好的帮手。这个API的作用在于遍历全进程的到处函数表，找到指定函数的地址然后返回地址，这个API比较适用于找strcmp，malloc，memcpy，memset等全局函数。</p>
-<p>与Module.findGlobalExportByName()的全进程搜索相反，Process.getModuleByName与xxx.getExportByName的组合就是指定导出表来搜索，示例用法如下</p>
+<p>如何找到具体地址呢？**Module.findGlobalExportByName() **就是一个很好的帮手。这个API的作用在于遍历全进程的到处函数表，找到指定函数的地址然后返回地址，这个API比较适用于找strcmp，malloc，memcpy，memset等全局函数。</p>
+<p>与Module.findGlobalExportByName()的全进程搜索相反，<strong>Process.getModuleByName</strong>与<strong>xxx.getExportByName</strong>的组合就是在指定文件的模块中进行搜索，示例用法如下</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> libc = <span class="title class_">Process</span>.<span class="title function_">getModuleByName</span>(<span class="string">&quot;libc.so&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> addr = libc.<span class="title function_">getExportByName</span>(<span class="string">&quot;strcmp&quot;</span>);</span><br></pre></td></tr></table></figure>
 <p>以上示例用法相当于指定在libc.so中找到strcmp这个函数并返回其地址。</p>
 <p>值得注意的是，在nativehook中，除去找到hook点，最重要的第一步就是找到hook点的地址。</p>
-<p>接下来说说onEnter(args)这个API</p>
-<p>onEnter的作用在于在函数进入时执行其内部函数，而args就是我们所有hook函数的参数，因为这里hook了函数的参数，所以后面我们需要将args来具体赋值，示例如下</p>
+<p>接下来说说**onEnter(args)**这个API</p>
+<p>onEnter的作用在于在函数进入时执行其内部函数，而args就是我们所要hook函数的参数，因为这里hook了函数的参数，所以后面我们需要将args来具体赋值，示例如下</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">onEnter</span>(<span class="params">args</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> str1=args[<span class="number">0</span>].<span class="title function_">readCString</span>();</span><br><span class="line">    <span class="keyword">var</span> str2=args[<span class="number">1</span>].<span class="title function_">readCString</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(str1==<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;input:&quot;</span>,str1);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;flag:&quot;</span>,str2);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>与onEnter相反，onLeave(retval)就是在函数返回前执行，笔者暂时还未遇到就不多赘述。</p>
-<h3 id="方法论"><a class="markdownIt-Anchor" href="#方法论"></a> 方法论</h3>
-<p>那我们在看到apk时该如何判断是否要nativehook，要的话又该hook哪个点呢？</p>
-<p>看是否要native分析的关键点在于apk中是否调用了本地so文件，可以通过JADX查看，而是否要nativehook则要看so文件中的具体代码逻辑。而找到hook点的关键在于看so逻辑中的返回和比较。因为一般来说so文件的逻辑都是入口-&gt;处理逻辑-&gt;储存赋值-&gt;比较-&gt;返回，其中比较和返回是最有可能出现flag或与flag相关的地方。</p>
+<p>与onEnter相反，**onLeave(retval)**就是在函数返回前执行，而onEnter和onLeave都是可以单独使用的。以下是onLeave的具体示例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="title class_">Process</span>.<span class="title function_">getModuleByName</span>(<span class="string">&quot;liba0x9.so&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> addr=a.<span class="title function_">getExportByName</span>(<span class="string">&quot;Java_com_ad2001_a0x9_MainActivity_check_1flag&quot;</span>);</span><br><span class="line"><span class="title class_">Interceptor</span>.<span class="title function_">attach</span>(addr,&#123;</span><br><span class="line">    <span class="title function_">onLeave</span>(<span class="params">retval</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        retval.<span class="title function_">replace</span>(<span class="number">1337</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>主要作用就是在程序退出时返回1337。</p>
+<p>当我们需要调用so文件中某一个自定义函数而不是strcmp，strcpy等封装好的函数时我们就需要使用<strong>xxx.base.add(偏移)<strong>和</strong>new NativeFunction(地址 , ‘函数类型’ , [‘输入类型’])</strong></p>
+<p>示例代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> baseaddr=<span class="title class_">Process</span>.<span class="title function_">getModuleByName</span>(<span class="string">&quot;libfrida0xa.so&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> addr=baseaddr.<span class="property">base</span>.<span class="title function_">add</span>(<span class="number">0x206B0</span>);</span><br><span class="line"><span class="keyword">var</span> get_flag= <span class="keyword">new</span> <span class="title class_">NativeFunction</span>(addr,<span class="string">&#x27;void&#x27;</span>,[<span class="string">&#x27;int&#x27;</span> , <span class="string">&#x27;int&#x27;</span>]);</span><br><span class="line"><span class="title function_">get_flag</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>而在nativehook中很难不遇到死代码或者花指令此时可以手动nop或者进行hook，在利用hook进行nop时主要使用的API为<strong>new X86(根据实际情况替换架构)Writer(nop起始地址)<strong>和</strong>Memory.protect(nop地址 , 设置可读写内存大小 , ‘读写权限’)</strong></p>
+<p>示例代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Process</span>.<span class="title function_">attachModuleObserver</span>(&#123;</span><br><span class="line">  <span class="attr">onAdded</span>:<span class="keyword">function</span>(<span class="params"><span class="variable language_">module</span></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> a=<span class="title class_">Process</span>.<span class="title function_">getModuleByName</span>(<span class="string">&quot;libfrida0xb.so&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> addr=a.<span class="title function_">getExportByName</span>(<span class="string">&quot;Java_com_ad2001_frida0xb_MainActivity_getFlag&quot;</span>);</span><br><span class="line">    <span class="keyword">var</span> nopaddr=addr.<span class="title function_">add</span>(<span class="number">0x1E</span>);</span><br><span class="line">    <span class="keyword">var</span> write=<span class="keyword">new</span> <span class="title function_">X86Writer</span>(nopaddr);</span><br><span class="line">    <span class="title class_">Memory</span>.<span class="title function_">protect</span>(nopaddr, <span class="number">0x1000</span>, <span class="string">&#x27;rwx&#x27;</span>);</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">      write.<span class="title function_">putNop</span>();</span><br><span class="line">      write.<span class="title function_">putNop</span>();</span><br><span class="line">      write.<span class="title function_">putNop</span>();</span><br><span class="line">      write.<span class="title function_">putNop</span>();</span><br><span class="line">      write.<span class="title function_">putNop</span>();</span><br><span class="line">      write.<span class="title function_">putNop</span>();</span><br><span class="line">      write.<span class="title function_">flush</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">finally</span>&#123;</span><br><span class="line">      write.<span class="title function_">dispose</span>()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>Process.attachModuleObserver</strong>这个API的主要作用是监听模块加载事件，但是只负责监听，不负责回调调用等</p>
+<p><strong>onAdded</strong>的作用则着重在于回调调用，进程中已经存在的模块这个API会先回调调用一遍，新模块加载时此API则会继续被调用。这个API能够有效防止so和frida调用异步导致调用失败的问题。</p>
+<p><strong>putNop</strong>的作用就是nop，但是一次只能nop掉一个字节，所以在进行hooknop时需要注意要nop掉的字节数</p>
+<p><strong>flush</strong>的作用则是将nop指令真正写入内存中，不调用则会导致putNop指令只存在于write的缓冲区中无法起到nop的作用</p>
+<p><strong>dispose</strong>则是进行资源释放防止Writer执行失败而资源未释放而造成的内存泄漏或状态残留</p>
+<p>解释一下Memory.protect中的rwx，这个rwx并不是我们所认知的寄存器，而是读写权限，在安卓中.text段的代码权限默认是 r-x 并不包含write权限，所以我们就需要增加write权限以保证Writer能够将指令正常写入进内存中方式错误</p>
+<p>最近更新于2026.11.9</p>
 
     </div>
     <footer class="article-footer">
@@ -316,10 +328,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        47.2k
+        49.8k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        04:09
+        04:21
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -341,7 +353,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFnativehook"><span class="toc-number">2.</span> <span class="toc-text"> 什么是NativeHook？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFso%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text"> 什么是so文件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#so%E6%96%87%E4%BB%B6%E5%8F%82%E4%B8%8E%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81"><span class="toc-number">2.2.</span> <span class="toc-text"> so文件参与的执行流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hook"><span class="toc-number">3.</span> <span class="toc-text"> Hook？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fridaapi"><span class="toc-number">3.1.</span> <span class="toc-text"> FridaAPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="toc-number">3.2.</span> <span class="toc-text"> 方法论</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFnativehook"><span class="toc-number">2.</span> <span class="toc-text"> 什么是NativeHook？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFso%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text"> 什么是so文件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#so%E6%96%87%E4%BB%B6%E5%8F%82%E4%B8%8E%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81"><span class="toc-number">2.2.</span> <span class="toc-text"> so文件参与的执行流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hook"><span class="toc-number">3.</span> <span class="toc-text"> Hook？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fridaapi"><span class="toc-number">3.1.</span> <span class="toc-text"> FridaAPI</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -481,7 +493,7 @@
           description: "",
           stripContent: " 前言 按理来说这篇文章可以放在FridaHook里，但由于是一个难点，变式多样，很多地方和FridaHook的Java层hook不一样，所以单开一篇，方便知识点的查阅学习。由于笔者也在逐渐学习，所以文章会逐步丰富更新，同时也难免出现一些错误遗落，还请读者斧正和批判性阅读。  什么是NativeHook？ 在了解native前我们需要深入了解一下什么是so文件  什么是so文件？ 正如前面的初入门所说，so文件是必定包含在apk中的一个文件，是app的本地功能模块，它主要的作用在于用C或C++语",
           date: "Tue Aug 11 2026 00:00:00 GMT+0800",
-          updated: "Tue Aug 11 2026 12:56:19 GMT+0800",
+          updated: "Mon Nov 09 2026 10:38:08 GMT+0800",
           cover: "/passagecover/14.jpg",
         };
       </script>
