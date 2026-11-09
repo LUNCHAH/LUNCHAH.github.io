@@ -1,3 +1,9 @@
+title: FridaLab
+date: 2026-11-9
+category: Weekly
+cover: /passagecover/35b418097280c37e567d680b2232fb51.jpg
+---
+
 ## FridaLab-0x1
 逐渐把安卓的学习提上日程，先一步步来吧。
 
