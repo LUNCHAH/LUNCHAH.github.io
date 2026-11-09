@@ -1,3 +1,9 @@
+title: FridaNativeHook(持续更新版)
+date: 2026-8-11
+category: LEARN
+cover: /passagecover/14.jpg
+---
+
 ## 前言
 按理来说这篇文章可以放在FridaHook里，但由于是一个难点，变式多样，很多地方和FridaHook的Java层hook不一样，所以单开一篇，方便知识点的查阅学习。<font style="color:#DF2A3F;">由于笔者也在逐渐学习，所以文章会逐步丰富更新，同时也难免出现一些错误遗落，还请读者斧正和批判性阅读</font>。
 
@@ -182,3 +188,6 @@ Process.attachModuleObserver({
 
 解释一下Memory.protect中的rwx，这个rwx并不是我们所认知的寄存器，而是读写权限，在安卓中.text段的代码权限默认是 r-x 并不包含write权限，所以我们就需要增加write权限以保证Writer能够将指令正常写入进内存中方式错误
 
+
+
+最近更新于2026.11.9
